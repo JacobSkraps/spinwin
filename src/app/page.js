@@ -1,95 +1,87 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+
+import { useEffect } from 'react';
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore, collection, getDocs,
+  addDoc, deleteDoc, doc
+} from 'firebase/firestore';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
+  authDomain: "spin2win-1adc1.firebaseapp.com",
+  projectId: "spin2win-1adc1",
+  storageBucket: "spin2win-1adc1.firebasestorage.app",
+  messagingSenderId: "261035404031",
+  appId: "1:261035404031:web:a4ddb5d7b0187c00bc3aca"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// init services
+const db = getFirestore()
+
+// collection ref
+const colRef = collection(db, 'formData')
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  useEffect(() => {
+    const addPeopleForm = document.querySelector('.add');
+    if (addPeopleForm) {
+      addPeopleForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        addDoc(colRef, {
+          dateOfBirth: addPeopleForm.firstName.value,
+          parentalConfirmation: addPeopleForm.parentalConfirmation.value,
+
+          firstName: addPeopleForm.firstName.value,
+          lastName: addPeopleForm.lastName.value,
+
+          email: addPeopleForm.email.value,
+          username: addPeopleForm.username.value,
+          password: addPeopleForm.password.value,
+          
+          addressOne: addPeopleForm.addressOne.value,
+          addressTwo: addPeopleForm.addressTwo.value,
+          province: addPeopleForm.province.value,
+
+          consentToCommunications: addPeopleForm.consentToCommunications.value,
+          consentToRules: addPeopleForm.consentToRules.value
+        }).then(() => {
+          addPeopleForm.reset();
+        });
+      });
+    }
+  }, []); // Empty dependency array ensures this runs only once
+
+  return (
+    <div>
+      <h1>Hi</h1>
+      <form className="add">
+        <input name="birthday" type="date" placeholder="Birthday" id="birthday" />
+        <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
+        <label htmlFor="parentalConsent">Parental Consent</ label>
+        
+        <input name="firstName" type="text" placeholder="First Name" />
+        <input name="lastName" type="text" placeholder="Last Name" />
+        <input name="email" type="email" placeholder="Email" />
+        <input name="username" type="text" placeholder="Username" />
+        <input name="password" type="password" placeholder="Password" />
+        <input name="addressOne" type="text" placeholder="Address Line 1" />
+        <input name="addressTwo" type="text" placeholder="City" />
+        <input name="province" type="text" placeholder="Province" />
+
+        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" />
+        <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
+
+        <input name="consentToRules" type="checkbox" id="rulesConsent" />
+        <label htmlFor="rulesConsent">Consent to be rules</ label>        
+
+        <button type="submit">Add Person</button>
+      </form>
     </div>
   );
 }

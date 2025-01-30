@@ -40,3 +40,19 @@ a {
     color-scheme: dark;
   }
 }
+
+.flex-row{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+#formSiding{
+  width: 50%;
+}
+#formContent{
+  width: 45%;
+}
+.No-Display{
+  display: none;
+}
