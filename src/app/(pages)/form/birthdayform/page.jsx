@@ -2,34 +2,40 @@
 
 import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
-import Link from 'next/link';
+// import Link from 'next/link';
 
 // const [ birthday, setBirthday] = useState('');
 
 let nextPage = "birthdayForm";
 function timeCheck(birthday) {
   const dateSplit = birthday.split("-");
-  let minusStart = 1970 * 31556926
-  let birthTime = 0
   console.log(dateSplit)
-  birthTime = (dateSplit[0] * 31556926) + birthTime;
-  birthTime = (dateSplit[1] * 2629743) + birthTime; 
-  birthTime = (dateSplit[2] * 86400) + birthTime;
 
-  console.log(`BirthTime ${birthTime}`);
-  const currentTime = new Date().getTime();
-  console.log(`currentTime ${currentTime}`);
-  const age = currentTime - birthTime;
-  console.log(`Age ${age/31556926}`);
+  // let ageEpoch = 0
+  // ageEpoch = ((2025*315569261000 - dateSplit[0]) * 315569261000) + ageEpoch;
+  // ageEpoch = (dateSplit[1] * 2629743000) + ageEpoch; 
+  // ageEpoch = (dateSplit[2] * 86400000) + ageEpoch;
 
-  let minimumAge = 16*31556926;
-  if (minimumAge <= age) {
+  const theirTimeMilli = new Date(dateSplit).getTime();
+  const currentTimeMilli = new Date().getTime();
+
+
+  let age = Math.floor((currentTimeMilli - theirTimeMilli)/(31556926100))
+
+  console.log(`${currentTimeMilli} - ${theirTimeMilli} = ${age}`);
+
+
+  // to get the date of their birthday
+  // const theirBirthdate = new Date(ageEpoch);
+  console.log(birthday);
+  let minimumAge = 15;
+  if (minimumAge < age) {
     nextPage = "mainForm"
   } 
   else{ 
     nextPage = "guardianForm" 
   }
-
+  redirect(`/form/${nextPage}`);
   // LinkForward.css.
 }
 
@@ -49,7 +55,6 @@ export default function Home() {
 
     // timeCheck(birthdayValue);
     // setBirthday(birthdayValue);
-    redirect(`/form/guardianForm`);
     };  
 
   return (

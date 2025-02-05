@@ -6,6 +6,7 @@ import {
   getFirestore, collection, getDocs,
   addDoc, deleteDoc, doc
 } from 'firebase/firestore';
+import Link from 'next/link'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -82,6 +83,9 @@ export default function Home() {
 
         <button type="submit">Add Person</button>
       </form>
+      <Link href="./form/birthdayform">
+        Take me to the form.
+      </Link>
     </div>
   );
 }
