@@ -6,6 +6,8 @@ import {
   getFirestore, collection, addDoc
 } from 'firebase/firestore';
 
+import Link from 'next/link'
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
@@ -34,8 +36,36 @@ export default function FormPage() {
     if (storedBirthday) {
       setBirthday(storedBirthday);
     }
-  }, []);
+  // }, []);
 
+  // useEffect(() => {
+    const addPeopleForm = document.querySelector('.add');
+    if (addPeopleForm) {
+      addPeopleForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        addDoc(colRef, {
+          dateOfBirth: storedBirthday,
+
+          firstName: addPeopleForm.firstName.value,
+          lastName: addPeopleForm.lastName.value,
+
+          email: addPeopleForm.email.value,
+          username: addPeopleForm.username.value,
+          password: addPeopleForm.password.value,
+          
+          addressOne: addPeopleForm.addressOne.value,
+          addressTwo: addPeopleForm.addressTwo.value,
+          province: addPeopleForm.province.value,
+
+          consentToCommunications: addPeopleForm.consentToCommunications.value,
+          consentToRules: addPeopleForm.consentToRules.value
+        }).then(() => {
+          addPeopleForm.reset();
+        });
+      });
+    }
+  }, []);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     
@@ -50,11 +80,32 @@ export default function FormPage() {
 
   return (
     <div>
-      <h1>Form Page</h1>
-      <p>Birthday: {birthday}</p>
-      <form onSubmit={handleFormSubmit}>
-        <button type="submit">Submit to Firebase</button>
+      <h1>Hi</h1>
+      <form className="add" onSubmit={handleFormSubmit}>
+        {/* <input name="birthday" type="date" placeholder="Birthday" id="birthday" /> */}
+        <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
+        <label htmlFor="parentalConsent">Parental Consent</ label>
+        
+        <input name="firstName" type="text" placeholder="First Name" />
+        <input name="lastName" type="text" placeholder="Last Name" />
+        <input name="email" type="email" placeholder="Email" />
+        <input name="username" type="text" placeholder="Username" />
+        <input name="password" type="password" placeholder="Password" />
+        <input name="addressOne" type="text" placeholder="Address Line 1" />
+        <input name="addressTwo" type="text" placeholder="City" />
+        <input name="province" type="text" placeholder="Province" />
+
+        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" />
+        <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
+
+        <input name="consentToRules" type="checkbox" id="rulesConsent" />
+        <label htmlFor="rulesConsent">Consent to be rules</ label>        
+
+        <button type="submit">Add Person</button>
       </form>
+      {/* <Link href="./form/birthdayform">
+        Take me to the form.
+      </Link> */}
     </div>
   );
 }
