@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
-// import Link from 'next/link';
+import Link from 'next/link';
 
 // const [ birthday, setBirthday] = useState('');
 
@@ -62,7 +62,12 @@ export default function Home() {
       <h1>Hi</h1>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit}>
         <input name="birthday" type="date" placeholder="Birthday" id="birthday" required/>
-        <button type="submit">Submit</button>
+        <div className='FormButtons'>
+          <button className='nextButtonButton' type="submit">Next</button>
+          <div className='backButton pageButton'>
+            <Link href="../">Back</Link>
+          </div>
+        </div>
       </form>
       {/* <Link id='LinkForward' href={`/form/${nextPage}`}> Next</Link> */}
     </div>

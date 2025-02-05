@@ -109,6 +109,9 @@ export default function FormPage() {
       {/* <Link href="./form/birthdayform">
         Take me to the form.
       </Link> */}
+      <div className='backButton pageButton'>
+        <Link href="./birthdayform">Back</Link>
+      </div>
     </div>
   );
 }

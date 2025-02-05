@@ -10,7 +10,15 @@ export default function FormLayout({ children }) {
   return (
     <div className="flex-row">
       <div id="formSiding">
-        <p>Contest Information</p>
+        <h1 id="contestInfo" className="fix-stroke">Contest Infomation</h1>
+        <p> 
+          1. Fill out the form with your details.
+          2. Spin the wheel and see if you're a winner!
+          3. Winners will be notified by email and must correctly answer a skill-testing question to claim their prize.
+
+          Winners will be selected by random draw. 
+          [ *Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days]. BuyMore Dollars Inc. reserves the right to remove any entries at their discretion.  [*Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days] By entering, you agree to the contest rules and regulations and consent to receive communications from BuyMore Dollars and our sponsors.
+          </p>
       </div>
       <div id="formContent">
         {children}
