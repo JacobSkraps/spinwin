@@ -47,12 +47,12 @@ export default function Home() {
     const addPeopleForm = addPeopleFormRef.current;
     const formData = new FormData(addPeopleForm);
     const birthdayValue = formData.get('birthday');
-    console.log(`Birthday Value ${birthdayValue}`)
-    timeCheck(birthdayValue);
 
     //* Store birthday in local storage
     localStorage.setItem('birthday', birthdayValue);
 
+    console.log(`Birthday Value ${birthdayValue}`)
+    timeCheck(birthdayValue);
     // timeCheck(birthdayValue);
     // setBirthday(birthdayValue);
     };  

@@ -46,6 +46,7 @@ export default function FormPage() {
 
         addDoc(colRef, {
           dateOfBirth: storedBirthday,
+          accountType: "Adult",
 
           firstName: addPeopleForm.firstName.value,
           lastName: addPeopleForm.lastName.value,
@@ -83,8 +84,8 @@ export default function FormPage() {
       <h1>Hi</h1>
       <form className="add" onSubmit={handleFormSubmit}>
         {/* <input name="birthday" type="date" placeholder="Birthday" id="birthday" /> */}
-        <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
-        <label htmlFor="parentalConsent">Parental Consent</ label>
+        {/* <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
+        <label htmlFor="parentalConsent">Parental Consent</ label> */}
         
         <input name="firstName" type="text" placeholder="First Name" />
         <input name="lastName" type="text" placeholder="Last Name" />
