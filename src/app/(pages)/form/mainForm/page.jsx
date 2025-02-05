@@ -87,19 +87,19 @@ export default function FormPage() {
         {/* <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
         <label htmlFor="parentalConsent">Parental Consent</ label> */}
         
-        <input name="firstName" type="text" placeholder="First Name" />
-        <input name="lastName" type="text" placeholder="Last Name" />
-        <input name="email" type="email" placeholder="Email" />
-        <input name="username" type="text" placeholder="Username" />
-        <input name="password" type="password" placeholder="Password" />
-        <input name="addressOne" type="text" placeholder="Address Line 1" />
-        <input name="addressTwo" type="text" placeholder="City" />
-        <input name="province" type="text" placeholder="Province" />
+        <input name="firstName" type="text" placeholder="First Name" required />
+        <input name="lastName" type="text" placeholder="Last Name" required />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="username" type="text" placeholder="Username" required />
+        <input name="password" type="password" placeholder="Password" required />
+        <input name="addressOne" type="text" placeholder="Address Line 1" required />
+        <input name="addressTwo" type="text" placeholder="City" required />
+        <input name="province" type="text" placeholder="Province" required />
 
-        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" />
+        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
         <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
 
-        <input name="consentToRules" type="checkbox" id="rulesConsent" />
+        <input name="consentToRules" type="checkbox" id="rulesConsent" required />
         <label htmlFor="rulesConsent">Consent to be rules</ label>        
 
         <button type="submit">Add Person</button>

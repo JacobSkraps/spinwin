@@ -61,7 +61,7 @@ export default function Home() {
     <div>
       <h1>Hi</h1>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit}>
-        <input name="birthday" type="date" placeholder="Birthday" id="birthday" />
+        <input name="birthday" type="date" placeholder="Birthday" id="birthday" required/>
         <button type="submit">Submit</button>
       </form>
       {/* <Link id='LinkForward' href={`/form/${nextPage}`}> Next</Link> */}

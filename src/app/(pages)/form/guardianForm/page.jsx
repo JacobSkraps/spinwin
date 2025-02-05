@@ -48,7 +48,7 @@ export default function FormPage() {
           dateOfBirth: storedBirthday,
           accountType: "Child",
 
-          parentDateOfBirth: addPeopleForm.dateofBirth.value,
+          parentDateOfBirth: addPeopleForm.birthday.value,
 
           parentFirstName: addPeopleForm.firstName.value,
           parentLastName: addPeopleForm.lastName.value,
@@ -85,23 +85,23 @@ export default function FormPage() {
     <div>
       <h1>Hi</h1>
       <form className="add" onSubmit={handleFormSubmit}>
-        <input name="birthday" type="date" placeholder="Birthday" id="birthday" />
-        <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
+        <input name="birthday" type="date" placeholder="Birthday" id="birthday" required />
+        <input name="parentalConfirmation" type="checkbox" id="parentalConsent" required />
         <label htmlFor="parentalConsent">Parental Consent</ label>
         
-        <input name="firstName" type="text" placeholder="First Name" />
-        <input name="lastName" type="text" placeholder="Last Name" />
-        <input name="email" type="email" placeholder="Email" />
-        <input name="username" type="text" placeholder="Username" />
-        <input name="password" type="password" placeholder="Password" />
-        <input name="addressOne" type="text" placeholder="Address Line 1" />
-        <input name="addressTwo" type="text" placeholder="City" />
-        <input name="province" type="text" placeholder="Province" />
+        <input name="firstName" type="text" placeholder="First Name" required />
+        <input name="lastName" type="text" placeholder="Last Name" required />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="username" type="text" placeholder="Username" required />
+        <input name="password" type="password" placeholder="Password" required />
+        <input name="addressOne" type="text" placeholder="Address Line 1" required />
+        <input name="addressTwo" type="text" placeholder="City" required />
+        <input name="province" type="text" placeholder="Province" required />
 
-        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" />
+        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
         <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
 
-        <input name="consentToRules" type="checkbox" id="rulesConsent" />
+        <input name="consentToRules" type="checkbox" id="rulesConsent" required />
         <label htmlFor="rulesConsent">Consent to be rules</ label>        
 
         <button type="submit">Add Person</button>
