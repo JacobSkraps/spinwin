@@ -179,20 +179,48 @@ form{
 .formButtons{
   display: flex;
   flex-direction: row;
-  /* padding: 32px 0; */
-  /* gap: 18px; */
 }
-/* .formButtonContainer{
+
+#consentPage{
+  flex-direction: column;
+}
+.formCheck{
   display: flex;
-  flex-direction: row;
-} */
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 8px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+
+  width: 40px;
+  height: 40px;
+  margin-right: 24px;
+
+  background-clip: content-box;
+  color: #4C2A4E;
+  border: white 2px solid;
+  border-radius: 10px;
+  &:checked{
+    background-color: white;
+}
+
+&:focus{
+    outline: none !important;
+}
+}
+
+
 .pageButton{
   width: 106px;
   height: 48px;
   border: 4px solid #0E1F25;
   border-radius: 10px;
   display: flex;
-
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;

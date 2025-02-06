@@ -1,92 +1,48 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import { initializeApp } from 'firebase/app';
-import {
-  getFirestore, collection, addDoc
-} from 'firebase/firestore';
+import { useRef, useState } from 'react';
+import { redirect } from 'next/navigation';;
 
 import Link from 'next/link'
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
-  authDomain: "spin2win-1adc1.firebaseapp.com",
-  projectId: "spin2win-1adc1",
-  storageBucket: "spin2win-1adc1.firebasestorage.app",
-  messagingSenderId: "261035404031",
-  appId: "1:261035404031:web:a4ddb5d7b0187c00bc3aca"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// init services
-const db = getFirestore()
-
-// collection ref
-const colRef = collection(db, 'formData')
-
 export default function FormPage() {
-  const [birthday, setBirthday] = useState('');
-
-  useEffect(() => {
-    // Retrieve birthday from local storage
-    const storedBirthday = localStorage.getItem('birthday');
-    if (storedBirthday) {
-      setBirthday(storedBirthday);
-    }
-  // }, []);
-
-  // useEffect(() => {
-    const addPeopleForm = document.querySelector('.add');
-    if (addPeopleForm) {
-      addPeopleForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        addDoc(colRef, {
-          dateOfBirth: storedBirthday,
-          accountType: "Adult",
-
-          firstName: addPeopleForm.firstName.value,
-          lastName: addPeopleForm.lastName.value,
-
-          phone: addPeopleForm.phone.value,
-          email: addPeopleForm.email.value,
-          // username: addPeopleForm.username.value,
-          // password: addPeopleForm.password.value,
-          
-          addressOne: addPeopleForm.addressOne.value,
-          addressTwo: addPeopleForm.addressTwo.value,
-          province: addPeopleForm.province.value,
-
-          consentToCommunications: addPeopleForm.consentToCommunications.value,
-          consentToRules: addPeopleForm.consentToRules.value
-        }).then(() => {
-          addPeopleForm.reset();
-        });
-      });
-    }
-  }, []);
-  const handleFormSubmit = async (e) => {
+  const addPeopleFormRef = useRef(null);
+  const handleFormSubmit = (e) => {
     e.preventDefault();
+    const addPeopleForm = addPeopleFormRef.current;
+    const formData = new FormData(addPeopleForm);
     
-    // Add to Firestore
-    await addDoc(colRef, {
-      dateOfBirth: birthday,
-    });
+    //* Store Values in local storage
+    localStorage.setItem('accountType', "Adult");
 
-    // Clear local storage
-    localStorage.removeItem('birthday');
-  };
+    const firstNameValue = formData.get('firstName');
+    localStorage.setItem('firstName', firstNameValue);
+
+    const lastNameValue = formData.get('lastName');
+    localStorage.setItem('lastName', lastNameValue);
+
+    const emailValue = formData.get('email');
+    localStorage.setItem('email', emailValue);
+
+    const phoneValue = formData.get('phone');
+    localStorage.setItem('phone', phoneValue);
+
+    const addressOneValue = formData.get('addressOne');
+    localStorage.setItem('addressOne', addressOneValue);
+
+    const addressTwoValue = formData.get('addressTwo');
+    localStorage.setItem('addressTwo', addressTwoValue);
+
+    const postalValue = formData.get('postal');
+    localStorage.setItem('postal', postalValue);
+
+    redirect(`/form/consentForm`);
+    };  
 
   return (
     <div>
-      <h3 className='formSubHeading'>Guardian Information</h3>
-      <form className="add" onSubmit={handleFormSubmit}>
-        {/* <input name="birthday" type="date" placeholder="Birthday" id="birthday" /> */}
-        {/* <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
-        <label htmlFor="parentalConsent">Parental Consent</ label> */}
+      <h3 className='formSubHeading'>Personal Information</h3>
+      <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit}>
         <div className='formElement'>
           <label htmlFor="firstLabel" className='formLabel'>First Name</ label>        
           <input name="firstName" type="text" placeholder="First Name" className='formHalf' required />
@@ -103,8 +59,6 @@ export default function FormPage() {
           <label htmlFor="emailLabel" className='formLabel'>Email</ label>        
           <input name="email" type="email" placeholder="Email" className='formHalf' required />
         </div>
-        {/* <input name="username" type="text" placeholder="Username" className='formHalf' required />
-        <input name="password" type="password" placeholder="Password" className='formHalf' required /> */}
         <h3 className='formSubHeading'>Address</h3>
         <div className='formElement'>
           <label htmlFor="streetLabel" className='formLabel'>Street Name</ label>        
@@ -115,15 +69,12 @@ export default function FormPage() {
           <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
         </div>
         <div className='formElement'>
-          <label htmlFor="provLabel" className='formLabel'>Province</ label>        
-          <input name="province" type="text" placeholder="Province" className='formHalf' required />
+          <label htmlFor="postLabel" className='formLabel'>Postal Code</ label>        
+          <input name="postal" type="text" placeholder="Postal Code" className='formHalf' required />
+          <div className='formError'>
+              <p>Error</p>
+          </div>
         </div>
-
-        {/* <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
-        <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
-
-        <input name="consentToRules" type="checkbox" id="rulesConsent" required />
-        <label htmlFor="rulesConsent">Consent to be rules</ label>         */}
 
         <div className='formButtons'>
           <div className='backButton pageButton'>

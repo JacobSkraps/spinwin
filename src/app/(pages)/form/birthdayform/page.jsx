@@ -11,11 +11,6 @@ function timeCheck(birthday) {
   const dateSplit = birthday.split("-");
   console.log(dateSplit)
 
-  // let ageEpoch = 0
-  // ageEpoch = ((2025*315569261000 - dateSplit[0]) * 315569261000) + ageEpoch;
-  // ageEpoch = (dateSplit[1] * 2629743000) + ageEpoch; 
-  // ageEpoch = (dateSplit[2] * 86400000) + ageEpoch;
-
   const theirTimeMilli = new Date(dateSplit).getTime();
   const currentTimeMilli = new Date().getTime();
 
