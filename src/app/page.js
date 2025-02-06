@@ -74,30 +74,8 @@ export default function Home() {
   return (
     <div>
       <h1>Hi</h1>
-      <form className="add">
-        <input name="birthday" type="date" placeholder="Birthday" id="birthday" />
-        <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
-        <label htmlFor="parentalConsent">Parental Consent</ label>
-        
-        <input name="firstName" type="text" placeholder="First Name" />
-        <input name="lastName" type="text" placeholder="Last Name" />
-        <input name="email" type="email" placeholder="Email" />
-        <input name="username" type="text" placeholder="Username" />
-        <input name="password" type="password" placeholder="Password" />
-        <input name="addressOne" type="text" placeholder="Address Line 1" />
-        <input name="addressTwo" type="text" placeholder="City" />
-        <input name="province" type="text" placeholder="Province" />
-
-        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" />
-        <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
-
-        <input name="consentToRules" type="checkbox" id="rulesConsent" />
-        <label htmlFor="rulesConsent">Consent to be rules</ label>        
-
-        <button type="submit">Add Person</button>
-      </form>
       <Link href="./form/birthdayform">
-        Take me to the form.
+        <h3 className='formSubHeading'>Take me to the Form!</h3>
       </Link>
     </div>
   );

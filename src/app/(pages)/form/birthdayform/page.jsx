@@ -65,11 +65,11 @@ export default function Home() {
           <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
           <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide' required/>
         </div>
-        <div className='FormButtons'>
-          <button className='nextButtonButton' type="submit">Next</button>
+        <div className='formButtons'>
           <div className='backButton pageButton'>
             <Link href="../">Back</Link>
           </div>
+          <button className='nextButtonButton' type="submit">Next</button>
         </div>
       </form>
       {/* <Link id='LinkForward' href={`/form/${nextPage}`}> Next</Link> */}

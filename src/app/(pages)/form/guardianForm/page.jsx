@@ -54,15 +54,17 @@ export default function FormPage() {
           parentLastName: addPeopleForm.lastName.value,
 
           parentEmail: addPeopleForm.email.value,
-          username: addPeopleForm.username.value,
-          password: addPeopleForm.password.value,
+          parentPhone: addPeopleForm.phone.value,
+
+          // username: addPeopleForm.username.value,
+          // password: addPeopleForm.password.value,
           
           parentAddressOne: addPeopleForm.addressOne.value,
           parentAddressTwo: addPeopleForm.addressTwo.value,
           parentProvince: addPeopleForm.province.value,
 
-          consentToCommunications: addPeopleForm.consentToCommunications.value,
-          consentToRules: addPeopleForm.consentToRules.value
+          // consentToCommunications: addPeopleForm.consentToCommunications.value,
+          // consentToRules: addPeopleForm.consentToRules.value
         }).then(() => {
           addPeopleForm.reset();
         });
@@ -83,9 +85,8 @@ export default function FormPage() {
 
   return (
     <div>
-      <h1>Hi</h1>
+      <h3 className='formSubHeading'>Guardian Information</h3>
       <form className="add" onSubmit={handleFormSubmit}>
-
         <div className='formElement'>
           <label htmlFor="firstLabel" className='formLabel'>First Name</ label>        
           <input name="firstName" type="text" placeholder="First Name" className='formHalf' required />
@@ -94,36 +95,57 @@ export default function FormPage() {
           <label htmlFor="lastLabel" className='formLabel'>Last Name</ label>        
           <input name="lastName" type="text" placeholder="Last Name" className='formHalf' required />
         </div>
-        <div className='formElement'>
-          <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
-          <input name="birthday" type="date" placeholder="Birthday" id="birthday" required />
-        </div>
         {/* <input name="parentalConfirmation" type="checkbox" id="parentalConsent" required />
         <label htmlFor="parentalConsent">Parental Consent</ label> */}
-        
-        <input name="firstName" type="text" placeholder="First Name" className='formHalf' required />
-        <input name="lastName" type="text" placeholder="Last Name" className='formHalf' required />
-        <input name="email" type="email" placeholder="Email" className='formWide' required />
-        <input name="username" type="text" placeholder="Username" className='formHalf' required />
-        <input name="password" type="password" placeholder="Password" className='formHalf' required />
-        <input name="addressOne" type="text" placeholder="Street Name" className='formWide' required />
-        <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
-        <input name="province" type="text" placeholder="Province" className='formHalf' required />
+        <div className='formElement'>
+          <label htmlFor="emailLabel" className='formLabel'>Email</ label>        
+          <input name="email" type="email" placeholder="Email" className='formWide' required />
+        </div>
+        <div className='formElement'>
+          <label htmlFor="phoneLabel" className='formLabel'>Phone</ label>        
+          <input name="phone" type="phone" placeholder="Phone" className='formHalf' required />
+        </div>
+        <div className='formElement'>
+          <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
+          <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formHalf' required />
+        </div>
+        {/* <div className='formElement'>
+          <label htmlFor="userLabel" className='formLabel'>Username</ label>        
+          <input name="username" type="text" placeholder="Username" className='formHalf' required />
+        </div>
+        <div className='formElement'>
+          <label htmlFor="passwordLabel" className='formLabel'>Password</ label>        
+          <input name="password" type="password" placeholder="Password" className='formHalf' required />
+        </div> */}
+        <h3 className='formSubHeading'>Address</h3>
+        <div className='formElement'>
+          <label htmlFor="streetLabel" className='formLabel'>Street Name</ label>        
+          <input name="addressOne" type="text" placeholder="Street Name" className='formWide' required />
+        </div>
+        <div className='formElement'>
+          <label htmlFor="cityLabel" className='formLabel'>City Name</ label>        
+          <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
+        </div>
+        <div className='formElement'>
+          <label htmlFor="provLabel" className='formLabel'>Province Name</ label>        
+          <input name="province" type="text" placeholder="Province" className='formHalf' required />
+        </div>
 
-        <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
+        {/* <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
         <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
 
         <input name="consentToRules" type="checkbox" id="rulesConsent" required />
-        <label htmlFor="rulesConsent">Consent to be rules</ label>        
-
-        <button type="submit">Add Person</button>
+        <label htmlFor="rulesConsent">Consent to be rules</ label>         */}
+        <div className='formButtons'>
+          <div className='backButton pageButton'>
+              <Link href="./birthdayform">Back</Link>
+          </div>
+          <button className='nextButtonButton' type="submit">Submit</button>
+      </div>
       </form>
       {/* <Link href="./form/birthdayform">
         Take me to the form.
       </Link> */}
-      <div className='backButton pageButton'>
-        <Link href="./birthdayform">Back</Link>
-      </div>
     </div>
   );
 }

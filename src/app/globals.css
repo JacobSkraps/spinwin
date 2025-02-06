@@ -72,18 +72,21 @@ body{
   font-weight: 500;
   font-size: 16px;
   color: white;
+  line-height: 30px;
 }
 .formSubHeading{
   font-family: 'poppins';
   font-weight: 700;
   font-size: 20px;
   color: white;
+  margin: 12px 0 16px 0;
 }
 .formLabel{
   font-family: 'poppins';
   font-weight: 500;
   font-size: 16px;
   color: white;
+  /* max-width: 40%; */
 }
 
 #formBody{
@@ -106,31 +109,50 @@ body{
 #formContent{
   width: 45%;
 }
+form{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .formWide{
-  width: 100%;
+  width: 480px;
   height: 40px;
   border-radius: 10px;
   border: #FFFFFF solid 2px;
   background-color: #4C2A4E;
   color: white;
   padding: 4px;
+  margin-top: 12px;
 }
 .formHalf{
-  width: 45%;
+  width: 230px;
   height: 40px;
   border-radius: 10px;
   border: #FFFFFF solid 2px;
   background-color: #4C2A4E;
   color: white;
-  padding: 4px 0;
+  padding: 4px;
+  margin-top: 12px;
+}
+.formElement{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-bottom: 18px;
 }
 
-.FormButtons{
+.formButtons{
   display: flex;
   flex-direction: row;
-  padding: 32px 0;
-  gap: 18px;
+  /* padding: 32px 0; */
+  /* gap: 18px; */
 }
+/* .formButtonContainer{
+  display: flex;
+  flex-direction: row;
+} */
 .pageButton{
   width: 106px;
   height: 48px;
@@ -148,12 +170,13 @@ body{
   color: #000000;
 }
 .nextButton{
-  background: linear-gradient(180deg, #695507 0%, #F8E74C 15.49%, #FFF3EF 50.49%, #F8E74C 84.99%, #695507 100%);
-  box-shadow: 0px 0px 15px 2px #F8D757;
-}
-.backButton{
   background: linear-gradient(180deg, #0094D7 0%, #00BDDD 15%, #FFFFFF 50%, #00BDDD 85%, #0094D7 100%);
   box-shadow: 0px 0px 15px 2px #91E4FF;
+}
+.backButton{
+  background: linear-gradient(180deg, #695507 0%, #F8E74C 15.49%, #FFF3EF 50.49%, #F8E74C 84.99%, #695507 100%);
+  box-shadow: 0px 0px 15px 2px #F8D757;
+  margin-right: 16px;
 }
 
 .nextButtonButton{
@@ -170,8 +193,8 @@ body{
   text-align: center;
   color: #000000;
 
-  background: linear-gradient(180deg, #695507 0%, #F8E74C 15.49%, #FFF3EF 50.49%, #F8E74C 84.99%, #695507 100%);
-  box-shadow: 0px 0px 15px 2px #F8D757;
+  background: linear-gradient(180deg, #0094D7 0%, #00BDDD 15%, #FFFFFF 50%, #00BDDD 85%, #0094D7 100%);
+  box-shadow: 0px 0px 15px 2px #91E4FF;
   margin-right: auto;
 }
 .inactive{
