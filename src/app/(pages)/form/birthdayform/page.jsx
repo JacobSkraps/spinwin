@@ -59,9 +59,12 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Hi</h1>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit}>
-        <input name="birthday" type="date" placeholder="Birthday" id="birthday" required/>
+        <h3 className='formSubHeading'>Your Birthday</h3>
+        <div className='formElement'>
+          <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
+          <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide' required/>
+        </div>
         <div className='FormButtons'>
           <button className='nextButtonButton' type="submit">Next</button>
           <div className='backButton pageButton'>

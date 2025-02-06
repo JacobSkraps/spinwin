@@ -41,10 +41,15 @@ a {
   }
 }
 
+body{
+  background: rgb(158,34,144);
+  background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(18,5,37,1) 100%);
+}
+
 #contestInfo{
   /* CONTEST INFO */
 
-  font-family: 'Gabarito';
+  font-family: 'gabarito';
   font-style: normal;
   font-weight: 900;
   font-size: 56px;
@@ -62,18 +67,62 @@ a {
 .fix-stroke {
   paint-order: stroke fill;
 }
+.paragraphText{
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+}
+.formSubHeading{
+  font-family: 'poppins';
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+.formLabel{
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+}
 
-.flex-row{
-  width: 90%;
-  margin: auto;
+#formBody{
+  width: 1200px;
+  height: 652px;
+  margin: 80px auto;
   display: flex;
   flex-direction: row;
+  background: rgb(158,34,144);
+  background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(30,10,60,1) 100%);
+  border: 4px solid #FF95D4;
+  border-radius: 60px;
+  padding: 5% 5% 8% 5%;
+  filter: drop-shadow(0 0 50px 10px #FF77A2);
+  justify-content: space-between;
 }
 #formSiding{
   width: 50%;
 }
 #formContent{
   width: 45%;
+}
+.formWide{
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: #FFFFFF solid 2px;
+  background-color: #4C2A4E;
+  color: white;
+  padding: 4px;
+}
+.formHalf{
+  width: 45%;
+  height: 40px;
+  border-radius: 10px;
+  border: #FFFFFF solid 2px;
+  background-color: #4C2A4E;
+  color: white;
+  padding: 4px 0;
 }
 
 .FormButtons{

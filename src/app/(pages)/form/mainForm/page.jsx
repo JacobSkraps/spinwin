@@ -87,14 +87,14 @@ export default function FormPage() {
         {/* <input name="parentalConfirmation" type="checkbox" id="parentalConsent" />
         <label htmlFor="parentalConsent">Parental Consent</ label> */}
         
-        <input name="firstName" type="text" placeholder="First Name" required />
-        <input name="lastName" type="text" placeholder="Last Name" required />
-        <input name="email" type="email" placeholder="Email" required />
-        <input name="username" type="text" placeholder="Username" required />
-        <input name="password" type="password" placeholder="Password" required />
-        <input name="addressOne" type="text" placeholder="Address Line 1" required />
-        <input name="addressTwo" type="text" placeholder="City" required />
-        <input name="province" type="text" placeholder="Province" required />
+        <input name="firstName" type="text" placeholder="First Name" className='formHalf' required />
+        <input name="lastName" type="text" placeholder="Last Name" className='formHalf' required />
+        <input name="email" type="email" placeholder="Email" className='formHalf' required />
+        <input name="username" type="text" placeholder="Username" className='formHalf' required />
+        <input name="password" type="password" placeholder="Password" className='formHalf' required />
+        <input name="addressOne" type="text" placeholder="Street Name" className='formWide' required />
+        <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
+        <input name="province" type="text" placeholder="Province" className='formHalf' required />
 
         <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
         <label htmlFor="communicationsConsent">Consent to be communicated us</ label>        
