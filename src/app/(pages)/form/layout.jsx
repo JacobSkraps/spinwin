@@ -1,14 +1,16 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
+import localFont from 'next/font/local'
 
-import { Gabarito } from 'next/font/google'
+const Gabarito = localFont({ src: '../../../fonts/Gabarito-Black.ttf' })
+// import { Gabarito } from '../../../fonts/Gabarito-Black.ttf'
 import { Poppins } from 'next/font/google'
 
-const gabarito = Gabarito({
-  weight: ['900'],
-  style: ['normal'],
-  subsets: ['latin']
-})
+// const gabarito = Gabarito({
+//   weight: ['900'],
+//   style: ['normal'],
+//   subsets: ['latin']
+// })
 const poppins = Poppins({
   weight: ['500', '700'],
   style: ['normal'],
@@ -24,10 +26,14 @@ export default function FormLayout({ children }) {
   return (
     <div id="formBody">
       <div id="formSiding">
-        <h1 id="contestInfo" className="fix-stroke">Contest Infomation</h1>
+        <div className="relative">
+        <h1 className="contestInfo evilInfo" aria-hidden="true">CONTEST INFO</h1>
+        <h1 className="contestInfo ">CONTEST INFO</h1>
+        
+        </div>
         <div>
-          <p className="paragraphText"> 1. Fill out the form with your details.</p> <br />
-          <p className="paragraphText"> 2. Spin the wheel and see if you're a winner!</p> <br />
+          <p className="paragraphText"> 1. Fill out the form with your details.</p>
+          <p className="paragraphText"> 2. Spin the wheel and see if you're a winner!</p>
           <p className="paragraphText"> 3. Winners will be notified by email and must correctly answer a skill-testing question to claim their prize.</p> <br />
         </div> <br />
         <div>

@@ -61,7 +61,7 @@ export default function FormPage() {
           
           parentAddressOne: addPeopleForm.addressOne.value,
           parentAddressTwo: addPeopleForm.addressTwo.value,
-          parentProvince: addPeopleForm.province.value,
+          parentPostalCode: addPeopleForm.postal.value,
 
           // consentToCommunications: addPeopleForm.consentToCommunications.value,
           // consentToRules: addPeopleForm.consentToRules.value
@@ -90,24 +90,39 @@ export default function FormPage() {
         <div className='formElement'>
           <label htmlFor="firstLabel" className='formLabel'>First Name</ label>        
           <input name="firstName" type="text" placeholder="First Name" className='formHalf' required />
+          <div className='formError'>
+            <p>First name must contain only letters</p>
+          </div>
         </div>
         <div className='formElement'>
           <label htmlFor="lastLabel" className='formLabel'>Last Name</ label>        
           <input name="lastName" type="text" placeholder="Last Name" className='formHalf' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
         {/* <input name="parentalConfirmation" type="checkbox" id="parentalConsent" required />
         <label htmlFor="parentalConsent">Parental Consent</ label> */}
         <div className='formElement'>
           <label htmlFor="emailLabel" className='formLabel'>Email</ label>        
           <input name="email" type="email" placeholder="Email" className='formWide' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
         <div className='formElement'>
           <label htmlFor="phoneLabel" className='formLabel'>Phone</ label>        
           <input name="phone" type="phone" placeholder="Phone" className='formHalf' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
         <div className='formElement'>
           <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
           <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formHalf' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
         {/* <div className='formElement'>
           <label htmlFor="userLabel" className='formLabel'>Username</ label>        
@@ -121,14 +136,23 @@ export default function FormPage() {
         <div className='formElement'>
           <label htmlFor="streetLabel" className='formLabel'>Street Name</ label>        
           <input name="addressOne" type="text" placeholder="Street Name" className='formWide' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
         <div className='formElement'>
           <label htmlFor="cityLabel" className='formLabel'>City Name</ label>        
           <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
         <div className='formElement'>
-          <label htmlFor="provLabel" className='formLabel'>Province Name</ label>        
-          <input name="province" type="text" placeholder="Province" className='formHalf' required />
+          <label htmlFor="postLabel" className='formLabel'>Postal Code</ label>        
+          <input name="postal" type="text" placeholder="Postal Code" className='formHalf' required />
+          <div className='formError'>
+            <p>Error</p>
+          </div>
         </div>
 
         {/* <input name="consentToCommunications" type="checkbox" id="communicationsConsent" required />
