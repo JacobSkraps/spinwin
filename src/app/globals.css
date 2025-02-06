@@ -96,6 +96,10 @@ body{
   color: white;
   /* max-width: 40%; */
 }
+.bottom{
+  /* align-self: flex-end; */
+  font-size: 12px;
+}
 
 #formBody{
   width: 1200px;
@@ -113,9 +117,16 @@ body{
 }
 #formSiding{
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 #formContent{
   width: 45%;
+}
+#formSidingBodyParagraph{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 form{
   display: flex;

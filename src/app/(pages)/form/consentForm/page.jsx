@@ -39,10 +39,12 @@ export default function FormPage() {
 
     const [parentBirthday, setParentBirthday] = useState('');
 
+    const addPeopleForm = document.querySelector('.add');
+
 
     useEffect(() => {
         // Retrieve birthday from local storage
-        const storedType = localStorage.getItem('type');
+        const storedType = localStorage.getItem('accountType');
         setType(storedType);
         const storedBirthday = localStorage.getItem('birthday');
         setBirthday(storedBirthday);
@@ -60,7 +62,7 @@ export default function FormPage() {
         setAddressTwo(storedAddressTwo);
         const storedPostal = localStorage.getItem('postal');
         setPostal(storedPostal);
-        if(type == "Child"){
+        if(storedType == "Child"){
             const storedParentBirthday = localStorage.getItem('parentBirthday');
             setParentBirthday(storedParentBirthday);
         }
@@ -68,7 +70,6 @@ export default function FormPage() {
     // }, []);
 
     // useEffect(() => {
-        const addPeopleForm = document.querySelector('.add');
         if (addPeopleForm) {
             addPeopleForm.addEventListener('submit', (e) => {
                 if(type == "Child"){
@@ -120,9 +121,46 @@ export default function FormPage() {
         e.preventDefault();
         
         // Add to Firestore
-        await addDoc(colRef, {
-            dateOfBirth: birthday,
-        });
+        // await addDoc(colRef, {
+        //     dateOfBirth: birthday,
+        // });
+        console.log(`${type}`)
+        if(type == "Child"){
+            e.preventDefault();
+            await addDoc(colRef, {
+                accountType: type,
+                childDateOfBirth: birthday,
+
+                guardianFirstName: firstName,
+                guardianLastName: lastName,
+                guardianPhone: phone,
+                guardianEmail: email,
+                guardianAddressOne: addressOne,
+                guardianAddressTwo: addressTwo,
+                guardianPostal: postal,
+
+                guardianDateOfBirth: parentBirthday,
+            }).then(() => {
+                addPeopleForm.reset();
+            });
+        }
+        if(type == "Adult"){
+            e.preventDefault();
+            await addDoc(colRef, {
+                accountType: type,
+                dateOfBirth: birthday,
+
+                firstName: firstName,
+                lastName: lastName,
+                phone: phone,
+                email: email,
+                addressOne: addressOne,
+                addressTwo: addressTwo,
+                postal: postal,
+            }).then(() => {
+                addPeopleForm.reset();
+            });
+        }
 
         // Clear local storage
         localStorage.removeItem('birthday');

@@ -32,13 +32,19 @@ export default function FormLayout({ children }) {
         
         </div>
         <div>
-          <p className="paragraphText"> 1. Fill out the form with your details.</p>
-          <p className="paragraphText"> 2. Spin the wheel and see if you're a winner!</p>
-          <p className="paragraphText"> 3. Winners will be notified by email and must correctly answer a skill-testing question to claim their prize.</p> <br />
+          <p className="paragraphText"> </p>
+          <p>
+            1. Fill out the form with your details.<br/>
+            2. Spin the wheel and see if you're a winner!<br/>
+            3. Winners will be notified by email and must correctly answer a skill-testing question to claim their prize.<br/>
+          </p>
+          <p>
+          Winners will be selected by random draw. BuyMore Dollars Inc. reserves the right to remove any entries at their discretion.* By entering, you agree to the contest rules and regulations and consent to receive communications from BuyMore Dollars and our sponsors.
+          </p>
         </div> <br />
-        <div>
-          <p className="paragraphText"> Winners will be selected by random draw.
-            [ *Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days]. BuyMore Dollars Inc. reserves the right to remove any entries at their discretion.  [*Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days] By entering, you agree to the contest rules and regulations and consent to receive communications from BuyMore Dollars and our sponsors.
+        <div id="formSidingBodyParagraph">
+          <p className="paragraphText bottom">
+            *Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days]. BuyMore Dollars Inc. reserves the right to remove any entries at their discretion.  [*Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days] By entering, you agree to the contest rules and regulations and consent to receive communications from BuyMore Dollars and our sponsors.
           </p>
         </div>
       </div>
