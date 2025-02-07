@@ -340,7 +340,7 @@ input[type="checkbox"] {
     margin: auto 8px;
   }
   .formHalf{
-    width: 120px;
+    width: 140px;
   }
   .formWide{
     width: 300px;
@@ -350,11 +350,13 @@ input[type="checkbox"] {
     height: 32px;
     text-align: center;
     line-height: 19px;
+    font-size: 1rem;
   }
   .backButton{
     width: 80px;
     height: 32px;
     text-align: center;
     line-height: 32px;
+    font-size: 1rem;
   }
 } 

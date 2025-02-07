@@ -172,12 +172,12 @@ export default function FormPage() {
             <form className="add" id='consentPage' onSubmit={handleFormSubmit}>
                 <div className='formCheck'>
                     <input name="consentToCommunications" type="checkbox" id="communicationsConsent" className='consentBox' required />
-                    <span className='checkmark'></span>
+                    {/* <span className='checkmark'></span> */}
                     <label htmlFor="communicationsConsent" className='formLabel'>Consent to be communicated by us</ label>        
                 </div>
                 <div className='formCheck'>
                     <input name="consentToRules" type="checkbox" id="rulesConsent" className='consentBox' required />
-                    <span className='checkmark'></span>
+                    {/* <span className='checkmark'></span> */}
                     <label htmlFor="rulesConsent" className='formLabel'>Consent to be rules</ label>        
                 </div>
                 <div className='formButtons'>
