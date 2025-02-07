@@ -14,13 +14,13 @@ export default function FormPage() {
         const formData = new FormData(addPeopleForm);
         
         //* Store Values in local storage
-        const addressOneValue = formData.get('addressOne');
+        const addressOneValue = formData.get('streetAddress');
         localStorage.setItem('addressOne', addressOneValue);
 
-        const addressTwoValue = formData.get('addressTwo');
+        const addressTwoValue = formData.get('city');
         localStorage.setItem('addressTwo', addressTwoValue);
 
-        const postalValue = formData.get('postal');
+        const postalValue = formData.get('postalCode');
         localStorage.setItem('postal', postalValue);
 
 
@@ -59,9 +59,9 @@ return (
     <div>
         <h3 className='formHeading'>Address</h3>
             <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
-                <div className='formElement formWide'>
+                <div className='formElement'>
                     <label htmlFor="streetAddress" className='formLabel'>Street Name</ label>        
-                    <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Name" required />
+                    <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Name" className='formWide' required />
                     <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
@@ -71,7 +71,7 @@ return (
                 </div>
                 <div className='formElement'>
                     <label htmlFor="city" className='formLabel'>City</ label>        
-                    <input name="city" type="text" id="city" placeholder="City" required />
+                    <input name="city" type="text" id="city" placeholder="City"className='formHalf' required />
                     <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
@@ -81,7 +81,7 @@ return (
                 </div>
                 <div className='formElement'>
                     <label htmlFor="postalCode" className='formLabel'>Postal Code</ label>        
-                    <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" required />
+                    <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" className='formHalf' required />
                     <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
@@ -92,7 +92,7 @@ return (
 
                 <div className='formButtons'>
                     <div className='backButton pageButton'>
-                        <Link href="./birthdayform">Back</Link>
+                        <Link href="./guardianForm">Back</Link>
                     </div>
                     <button className='nextButtonButton' type="submit">Submit</button>
                 </div>
