@@ -55,9 +55,9 @@ export default function Home() {
   return (
     <div>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit}>
-        <h3 className='formSubHeading'>Your Birthday</h3>
+        <h3 className='formSubHeading'>Date of Birth</h3>
         <div className='formElement'>
-          <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
+          <label htmlFor="birthdayLabel" className='formLabel'>Date of Birth</ label>        
           <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide' required/>
         </div>
         <div className='formButtons'>

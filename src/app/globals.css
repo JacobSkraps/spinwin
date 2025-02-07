@@ -52,7 +52,7 @@ body{
   font-family: 'gabarito';
   font-style: normal;
   font-weight: 900;
-  font-size: 56px;
+  font-size: 3.5rem;
   /* Golden Gradient */
   background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
   -webkit-background-clip: text;
@@ -78,21 +78,21 @@ body{
 .paragraphText{
   font-family: 'poppins';
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   color: white;
   line-height: 2rem;
 }
 .formSubHeading{
   font-family: 'poppins';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: white;
   margin: 12px 0 16px 0;
 }
 .formLabel{
   font-family: 'poppins';
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   color: white;
   /* max-width: 40%; */
 }
@@ -286,3 +286,57 @@ input[type="checkbox"] {
 .No-Display{
   display: none;
 }
+
+@media only screen and (max-width: 850px) {
+  #formBody{
+    width: 350px;
+    height: 800px;
+    padding: 3% 2% 5% 2%;
+    justify-content: flex-start;
+  }
+  .add{
+    width: 300px;
+  }
+  #formSiding{
+    width: auto;
+    height: 45px;
+  }
+  #formContent{
+    width: auto;
+  }
+  #formSidingContainer{
+    display: none;
+  }
+  #formBody{
+    flex-direction: column;
+  }
+  #formSidingBodyParagraph{
+    display: none;
+  }
+  .contestInfo{
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  .evilInfo{
+    text-align: center;
+    left: 31px;
+  }
+  .formHalf{
+    width: 120px;
+  }
+  .formWide{
+    width: 300px;
+  }
+  .nextButtonButton{
+    width: 80px;
+    height: 32px;
+    text-align: center;
+    line-height: 19px;
+  }
+  .backButton{
+    width: 80px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+  }
+} 

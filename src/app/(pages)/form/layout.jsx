@@ -26,11 +26,11 @@ export default function FormLayout({ children }) {
   return (
     <div id="formBody">
       <section id="formSiding">
-        <div id="formSidingContainer">
           <div className="relative">
             <h1 className="contestInfo evilInfo" aria-hidden="true">CONTEST INFO</h1>
             <h1 className="contestInfo ">CONTEST INFO</h1>
           </div>
+          <div id="formSidingContainer">
           <p className="paragraphText"> </p>
           <p className="paragraphText">
             1. Fill out the form with your details.<br/>

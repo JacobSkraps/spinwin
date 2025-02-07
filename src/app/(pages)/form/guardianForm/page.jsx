@@ -72,34 +72,11 @@ export default function FormPage() {
             <p>Error</p>
           </div>
         </div>
-        {/* <h3 className='formSubHeading'>Address</h3>
-        <div className='formElement'>
-          <label htmlFor="streetLabel" className='formLabel'>Street Name</ label>        
-          <input name="addressOne" type="text" placeholder="Street Name" className='formWide' required />
-          <div className='formError'>
-            <p>Error</p>
-          </div>
-        </div>
-        <div className='formElement'>
-          <label htmlFor="cityLabel" className='formLabel'>City Name</ label>        
-          <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
-          <div className='formError'>
-            <p>Error</p>
-          </div>
-        </div>
-        <div className='formElement'>
-          <label htmlFor="postLabel" className='formLabel'>Postal Code</ label>        
-          <input name="postal" type="text" placeholder="Postal Code" className='formHalf' required />
-          <div className='formError'>
-            <p>Error</p>
-          </div>
-        </div> */}
-
         <div className='formButtons'>
           <div className='backButton pageButton'>
               <Link href="./birthdayform">Back</Link>
           </div>
-          <button className='nextButtonButton' type="submit">Submit</button>
+          <button className='nextButtonButton' type="submit">Next</button>
       </div>
       </form>
     </div>

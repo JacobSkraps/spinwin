@@ -80,7 +80,7 @@ export default function FormPage() {
           <div className='backButton pageButton'>
               <Link href="./birthdayform">Back</Link>
           </div>
-          <button className='nextButtonButton' type="submit">Submit</button>
+          <button className='nextButtonButton' type="submit">Next</button>
         </div>
 
       </form>
