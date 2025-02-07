@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { redirect } from 'next/navigation';;
+
 
 import Link from 'next/link'
-import legalPage from '../legalPage/page';
+// import legalPage from '../legalPage/page';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -181,7 +183,9 @@ export default function FormPage() {
         })
 
         // Clear local storage
-        localStorage.removeItem('birthday');
+        // localStorage.removeItem('birthday');
+
+        redirect(`/form/birthdayform`)
     };
 
     return (

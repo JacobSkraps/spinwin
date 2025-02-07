@@ -68,7 +68,7 @@ export default function Home() {
     <div>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit} noValidate>
         <h2 className='formHeading'>Your Birthday</h2>
-        <div className='formElement formWide'>
+        <div className='formElement'>
           <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
           <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide'/>
           <div className='formErrorBar'>

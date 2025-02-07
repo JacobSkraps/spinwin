@@ -17,13 +17,13 @@ export default function FormPage2() {
     localStorage.setItem('accountType', "Adult");
 
 
-    const addressOneValue = formData.get('addressOne');
+    const addressOneValue = formData.get('streetAddress');
     localStorage.setItem('addressOne', addressOneValue);
 
-    const addressTwoValue = formData.get('addressTwo');
+    const addressTwoValue = formData.get('city');
     localStorage.setItem('addressTwo', addressTwoValue);
 
-    const postalValue = formData.get('postal');
+    const postalValue = formData.get('postalCode');
     localStorage.setItem('postal', postalValue);
 
     let mainFormInputs = ["streetAddress", "city", "postalCode"];
@@ -65,9 +65,9 @@ export default function FormPage2() {
         <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
         <h3 className='formSubHeading'>Address</h3>
 
-        <div className='formElement formWide'>
+        <div className='formElement'>
             <label htmlFor="streetAddress" className='formLabel '>Street Name</ label>        
-            <input name="streetAddress" type="text" placeholder="Street Name" id="streetAddress" className='formInput' required />
+            <input name="streetAddress" type="text" placeholder="Street Name" id="streetAddress" className='formWide' required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
@@ -76,9 +76,9 @@ export default function FormPage2() {
             </div>
         </div>
         <fieldset className='fieldset2'>
-            <div className='formElement formHalf'>
+            <div className='formElement'>
                 <label htmlFor="city" className='formLabel'>City</ label>        
-                <input name="city" type="text" placeholder="City" id="city" className='formInput'  required />
+                <input name="city" type="text" placeholder="City" id="city" className='formHalf'  required />
                 <div className='formErrorBar'>
                     <p className='formErrorMessage'>
                     *City is required.<br/>
@@ -86,9 +86,9 @@ export default function FormPage2() {
                     </p>
                 </div>
             </div>
-            <div className='formElement formHalf'>
+            <div className='formElement'>
                 <label htmlFor="postalCode" className='formLabel'>Postal Code</ label>        
-                <input name="postalCode" type="text" placeholder="Postal Code" id="postalCode" className='formInput' required />
+                <input name="postalCode" type="text" placeholder="Postal Code" id="postalCode" className='formHalf' required />
                 <div className='formErrorBar'>
                     <p className='formErrorMessage'>
                     *Postal code is required.<br/>
