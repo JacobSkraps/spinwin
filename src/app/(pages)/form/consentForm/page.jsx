@@ -5,6 +5,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 import Link from 'next/link'
+import legalPage from '../legalPage/page';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -190,7 +191,7 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentCommunications" type="checkbox" id="consentCommunications" className='consentBox' value="yes" required />
                     <span className='checkmark'></span>
-                    <label htmlFor="consentCommunications" className='formLabel'>Consent to be communicated by us</ label> 
+                    <label htmlFor="consentCommunications" className='formLabel'>I consent to receiving communications regarding BuyMore Dollars products and sponsors.</ label> 
                     <div className='formErrorBar formErrorCheck'>
                         <p className='formErrorMessage'>
                         *Consent is required.
@@ -200,7 +201,7 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentRules" type="checkbox" id="consentRules" className='consentBox'  value="yes" required />
                     <span className='checkmark'></span>
-                    <label htmlFor="consentRules" className='formLabel'>Consent to be rules</ label>        
+                    <label htmlFor="consentRules" className='formLabel'>I agree to the contest <Link href="./legalPage">rules and regulations.</Link></ label>        
                     <div className='formErrorBar formErrorCheck'>
                         <p className='formErrorMessage'>
                         *Consent is required.
