@@ -1,16 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import localFont from 'next/font/local';
-
-const Gabarito = localFont({ src: '../fonts/Gabarito-Black.ttf' });
-import { Poppins } from 'next/font/google'
-const poppins = Poppins({
-  weight: ['500', '700'],
-  style: ['normal'],
-  subsets: ['latin'],
-});;
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

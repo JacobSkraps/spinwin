@@ -3,39 +3,53 @@
 import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
 import Link from 'next/link';
+import inputErrorCheck from '@/functions/inputErrorCheck';
 
 // const [ birthday, setBirthday] = useState('');
 
-let nextPage = "birthdayForm";
-function timeCheck(birthday) {
-  const dateSplit = birthday.split("-");
-  console.log(dateSplit)
-
-  const theirTimeMilli = new Date(dateSplit).getTime();
-  const currentTimeMilli = new Date().getTime();
-
-
-  let age = Math.floor((currentTimeMilli - theirTimeMilli)/(31556926100))
-
-  console.log(`${currentTimeMilli} - ${theirTimeMilli} = ${age}`);
-
-
-  // to get the date of their birthday
-  // const theirBirthdate = new Date(ageEpoch);
-  console.log(birthday);
-  let minimumAge = 15;
-  if (minimumAge < age) {
-    nextPage = "mainForm"
-  } 
-  else{ 
-    nextPage = "guardianForm" 
-  }
-  redirect(`/form/${nextPage}`);
-  // LinkForward.css.
-}
 
 export default function Home() {
   const addPeopleFormRef = useRef(null);
+
+  let nextPage;
+
+  function timeCheck(birthday) {
+    const dateSplit = birthday.split("-");
+    console.log(dateSplit)
+
+    const theirTimeMilli = new Date(dateSplit).getTime();
+    const currentTimeMilli = new Date().getTime();
+
+
+    let age = Math.floor((currentTimeMilli - theirTimeMilli)/(31556926100))
+
+    console.log(`${currentTimeMilli} - ${theirTimeMilli} = ${age}`);
+
+
+    // to get the date of their birthday
+    // const theirBirthdate = new Date(ageEpoch);
+    console.log(birthday);
+    let minimumAge = 15;
+    if (minimumAge < age) {
+      nextPage = "mainForm"
+    } 
+    else{ 
+      nextPage = "guardianForm" 
+    }
+
+    //* i made a checker to see if it'll give true or false here. */
+    const birthdayCheck = inputErrorCheck("birthday", birthday);
+
+    if(birthdayCheck){
+      redirect(`/form/${nextPage}`)
+    }
+    if(!birthdayCheck){
+      let input = document.getElementById("birthday");
+      // console.log(input)
+      input.style.border = "2px solid red"
+    }
+    // LinkForward.css.
+  }
   // const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,19 +60,24 @@ export default function Home() {
     //* Store birthday in local storage
     localStorage.setItem('birthday', birthdayValue);
 
-    console.log(`Birthday Value ${birthdayValue}`)
+    // console.log(`Birthday Value ${birthdayValue}`);
     timeCheck(birthdayValue);
-    // timeCheck(birthdayValue);
-    // setBirthday(birthdayValue);
-    };  
+  };  
 
   return (
     <div>
-      <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit}>
-        <h3 className='formSubHeading'>Date of Birth</h3>
-        <div className='formElement'>
-          <label htmlFor="birthdayLabel" className='formLabel'>Date of Birth</ label>        
-          <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide' required/>
+      <form ref={addPeopleFormRef} className="add" onSubmit={handleSubmit} noValidate>
+        <h2 className='formHeading'>Your Birthday</h2>
+        <div className='formElement formWide'>
+          <label htmlFor="birthdayLabel" className='formLabel'>Birthday</ label>        
+          <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide'/>
+          <div className='formErrorBar'>
+            <p className='formErrorMessage'>
+              *Date of Birth is required<br/>
+              *Enter a valid date in the format MM/DD/YYYY<br/>
+              *You must be at least 16 years old to participate. If you are below 16 years old, a guardian is required.
+            </p>
+          </div>
         </div>
         <div className='formButtons'>
           <div className='backButton pageButton'>

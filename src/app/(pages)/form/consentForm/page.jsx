@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
+    apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
     authDomain: "spin2win-1adc1.firebaseapp.com",
     projectId: "spin2win-1adc1",
     storageBucket: "spin2win-1adc1.firebasestorage.app",
@@ -162,23 +162,50 @@ export default function FormPage() {
             });
         }
 
+        const formData = new FormData(addPeopleForm);
+
+        let consentInputs = ["consentCommunications", "consentRules"];
+
+        consentInputs.forEach(input=>{
+            let inputField = document.getElementById(input);
+            let inputValue = formData.get(input);
+            console.log(inputValue)
+            if (inputValue == null){
+                console.log("changed to red")
+                inputField.style.border = "2px solid red"
+            } else if (inputValue === "yes"){
+                console.log("changed to white")
+                inputField.style.border = " 2px solid white"
+            }
+        })
+
         // Clear local storage
         localStorage.removeItem('birthday');
     };
 
     return (
         <div>
-            <h3 className='formSubHeading'>Consent</h3>
-            <form className="add" id='consentPage' onSubmit={handleFormSubmit}>
+            <h3 className='formHeading'>Consent</h3>
+            <form className="add" id='consentPage' onSubmit={handleFormSubmit} noValidate>
                 <div className='formCheck'>
-                    <input name="consentToCommunications" type="checkbox" id="communicationsConsent" className='consentBox' required />
-                    {/* <span className='checkmark'></span> */}
-                    <label htmlFor="communicationsConsent" className='formLabel'>I consent to receiving communications regarding BuyMore Dollars products and sponsors.</ label>        
+                    <input name="consentCommunications" type="checkbox" id="consentCommunications" className='consentBox' value="yes" required />
+                    <span className='checkmark'></span>
+                    <label htmlFor="consentCommunications" className='formLabel'>Consent to be communicated by us</ label> 
+                    <div className='formErrorBar formErrorCheck'>
+                        <p className='formErrorMessage'>
+                        *Consent is required.
+                        </p>
+                    </div>       
                 </div>
                 <div className='formCheck'>
-                    <input name="consentToRules" type="checkbox" id="rulesConsent" className='consentBox' required />
-                    {/* <span className='checkmark'></span> */}
-                    <label htmlFor="rulesConsent" className='formLabel'>I agree to the contest's<Link href="./legalPage"> rules and regulations</Link></ label>        
+                    <input name="consentRules" type="checkbox" id="consentRules" className='consentBox'  value="yes" required />
+                    <span className='checkmark'></span>
+                    <label htmlFor="consentRules" className='formLabel'>Consent to be rules</ label>        
+                    <div className='formErrorBar formErrorCheck'>
+                        <p className='formErrorMessage'>
+                        *Consent is required.
+                        </p>
+                    </div>       
                 </div>
                 <div className='formButtons'>
                     <div className='backButton pageButton'>
