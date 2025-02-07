@@ -26,10 +26,13 @@ export default function FormLayout({ children }) {
   return (
     <div id="formBody">
       <section id="formSiding">
+        <div id="formInfoHeading">
           <div className="relative">
             <h1 className="contestInfo evilInfo" aria-hidden="true">CONTEST INFO</h1>
             <h1 className="contestInfo ">CONTEST INFO</h1>
           </div>
+          <button id="formInfoPopup">i</button>
+        </div>
           <div id="formSidingContainer">
           <p className="paragraphText"> </p>
           <p className="paragraphText">

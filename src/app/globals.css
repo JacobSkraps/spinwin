@@ -75,6 +75,9 @@ body{
 .fix-stroke {
   paint-order: stroke fill;
 }
+#formInfoPopup{
+  display: none;
+}
 .paragraphText{
   font-family: 'poppins';
   font-weight: 500;
@@ -313,13 +316,28 @@ input[type="checkbox"] {
   #formSidingBodyParagraph{
     display: none;
   }
+  #formInfoHeading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   .contestInfo{
     font-size: 2.25rem;
-    text-align: center;
   }
   .evilInfo{
     text-align: center;
-    left: 31px;
+  }
+  #formInfoPopup{
+    display: block;
+    width: 30px;
+    height: 30px;
+    color: white;
+    background-color: #105BFE;
+    border: white solid 2px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    margin: auto 8px;
   }
   .formHalf{
     width: 120px;
