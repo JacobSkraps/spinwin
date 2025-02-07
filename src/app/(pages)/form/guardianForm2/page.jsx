@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
 
 import Link from 'next/link'
+import inputErrorCheck from '@/functions/inputErrorCheck';
 
 export default function FormPage() {
     const addPeopleFormRef = useRef(null);
@@ -22,40 +23,78 @@ export default function FormPage() {
         const postalValue = formData.get('postal');
         localStorage.setItem('postal', postalValue);
 
-        redirect(`/form/consentForm`);
+
+        let guardianFormInputs = ["streetAddress", "city", "postalCode"];
+    
+        //* check all if there is anything wrong
+        guardianFormInputs.forEach(input => {
+            let inputField = document.getElementById(input);
+    
+            let inputValue = formData.get(input);
+            let inputResult = inputErrorCheck(input, inputValue);
+            if(!inputResult){
+            inputField.style.border = "2px solid red"
+            } else{
+            console.log("colored to white")
+            inputField.style.border = " 2px solid white"
+            }
+        });
+    
+        //* check to see if they are all valid
+        let inputsValid = guardianFormInputs.every(input=>{
+            let inputValue = formData.get(input);
+            return inputErrorCheck(input, inputValue);
+        });
+    
+        if (inputsValid){
+            console.log("ALL TRUE YIPPEEE")
+            redirect(`/form/consentForm`)
+        } else{
+            console.log("SOMETHIN FAILED WAHH")
+        }
+        // redirect(`/form/consentForm`);
     };  
 
-  return (
+return (
     <div>
-        <h3 className='formSubHeading'>Address</h3>
-            <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit}>
-                <div className='formElement'>
-                    <label htmlFor="streetLabel" className='formLabel'>Street Name</ label>        
-                    <input name="addressOne" type="text" placeholder="Street Name" className='formWide' required />
-                    <div className='formError'>
-                        <p>Error</p>
-                    </div>
+        <h3 className='formHeading'>Address</h3>
+            <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
+                <div className='formElement formWide'>
+                    <label htmlFor="streetAddress" className='formLabel'>Street Name</ label>        
+                    <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Name" required />
+                    <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *Address is required.<br/>
+                *Address must include a street name and number.
+                </p>
+            </div>
                 </div>
                 <div className='formElement'>
-                    <label htmlFor="cityLabel" className='formLabel'>City Name</ label>        
-                    <input name="addressTwo" type="text" placeholder="City" className='formHalf' required />
-                    <div className='formError'>
-                        <p>Error</p>
-                    </div>
+                    <label htmlFor="city" className='formLabel'>City</ label>        
+                    <input name="city" type="text" id="city" placeholder="City" required />
+                    <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *Address is required.<br/>
+                *Address must include a street name and number.
+                </p>
+            </div>
                 </div>
                 <div className='formElement'>
-                    <label htmlFor="postLabel" className='formLabel'>Postal Code</ label>        
-                    <input name="postal" type="text" placeholder="Postal Code" className='formHalf' required />
-                    <div className='formError'>
-                        <p>Error</p>
-                    </div>
+                    <label htmlFor="postalCode" className='formLabel'>Postal Code</ label>        
+                    <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" required />
+                    <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *Address is required.<br/>
+                *Address must include a street name and number.
+                </p>
+            </div>
                 </div>
 
                 <div className='formButtons'>
                     <div className='backButton pageButton'>
-                        <Link href="./guardianForm">Back</Link>
+                        <Link href="./birthdayform">Back</Link>
                     </div>
-                    <button className='nextButtonButton' type="submit">Next</button>
+                    <button className='nextButtonButton' type="submit">Submit</button>
                 </div>
             </form>
         </div>
