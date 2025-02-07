@@ -173,12 +173,12 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentToCommunications" type="checkbox" id="communicationsConsent" className='consentBox' required />
                     {/* <span className='checkmark'></span> */}
-                    <label htmlFor="communicationsConsent" className='formLabel'>Consent to be communicated by us</ label>        
+                    <label htmlFor="communicationsConsent" className='formLabel'>I consent to receiving communications regarding BuyMore Dollars products and sponsors.</ label>        
                 </div>
                 <div className='formCheck'>
                     <input name="consentToRules" type="checkbox" id="rulesConsent" className='consentBox' required />
                     {/* <span className='checkmark'></span> */}
-                    <label htmlFor="rulesConsent" className='formLabel'>Consent to be rules</ label>        
+                    <label htmlFor="rulesConsent" className='formLabel'>I agree to the contest's<Link href="./legalPage"> rules and regulations</Link></ label>        
                 </div>
                 <div className='formButtons'>
                     <div className='backButton pageButton'>
