@@ -103,7 +103,7 @@ body{
   /* max-width: 40%; */
 }
 .bottom{
-  /* align-self: flex-end; */
+  align-self: flex-end;
   font-size: 12px;
   line-height: 1rem;
 }
@@ -310,15 +310,13 @@ input[type="checkbox"] {
   #formContent{
     width: auto;
   }
-  .formSidingContainer{
-    display: none;
-  }
+
   #formBody{
     flex-direction: column;
   }
-  #formSidingBodyParagraph{
+  #formSidingDesk{
     display: none;
-  }
+  } 
   #formInfoHeading{
     display: flex;
     flex-direction: row;
@@ -341,9 +339,11 @@ input[type="checkbox"] {
     font-size: 20px;
     font-weight: 700;
     margin: auto 8px;
+    cursor: pointer;
   }
   #formInfoPopup{
-    width: 100%;
+    margin: 40px 16px;
+    /* width: 100%; */
     height: 100%;
   }
   .formHalf{
@@ -367,3 +367,8 @@ input[type="checkbox"] {
     font-size: 1rem;
   }
 } 
+@media only screen and (min-width: 851px) {
+  #formInfoPopup{
+    display: none !important;
+  }
+}
