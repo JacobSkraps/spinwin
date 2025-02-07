@@ -1,0 +1,36 @@
+export default function inputErrorCheck(type, value) {
+
+    if(!type || !value){
+        return
+    }
+
+    const birthdayRegex = /^(19|20)\d{2}(\/|-)(0[1-9]|1[1-2])(\/|-)(0[1-9]|[12][0-9]|3[01])$/;
+    const firstNameRegex = /^[A-Za-z]+$/;
+    const lastNameRegex = /^[A-Za-z]+$/;
+    const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const streetAddressRegex = /^[0-9]+ [A-Za-z ]+$/;
+    const cityRegex = /^[A-Za-z\s]+$/;
+    const postalCodeRegex = /^[A-Za-z][0-9][A-Za-z] *[0-9][A-Za-z][0-9]$/i;
+
+
+
+    const listOfRegex = {
+        "birthday": birthdayRegex,
+        "firstName": firstNameRegex,
+        "lastName": lastNameRegex,
+        "phone": phoneRegex,
+        "email": emailRegex,
+        "streetAddress": streetAddressRegex,
+        "city": cityRegex,
+        "postalCode": postalCodeRegex
+    };
+
+    const inputType = listOfRegex[type];
+    const regexTest = inputType.test(value);
+    console.log(regexTest);
+    console.log("input error check")
+    return regexTest;
+    // if (type == "birthday" && )
+
+}
