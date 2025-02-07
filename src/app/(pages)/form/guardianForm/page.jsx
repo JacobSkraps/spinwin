@@ -115,7 +115,7 @@ export default function FormPage() {
         
         <div className='formElement formWide'>
           <label htmlFor="birthday" className='formLabel'>Date of Birth</ label>        
-          <input name="birthday" type="date" placeholder="Birthday" id="birthday" required />
+          <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide' required />
           <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Date of Birth is required<br/>
