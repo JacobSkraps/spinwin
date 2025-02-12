@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Gabarito Black';
+  src: url('/fonts/Gabarito-Black.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gabarito Bold';
+  src: url('/fonts/Gabarito-Bold.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -50,7 +64,7 @@ body{
 }
 .contestInfo{
   /* CONTEST INFO */
-  font-family: 'gabarito';
+  /* font-family: 'Gabarito Black'; */
   font-style: normal;
   font-weight: 900;
   font-size: 56px;
@@ -59,9 +73,9 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* text-fill-color: transparent;
+  /* text-fill-color: transparent; */
   -webkit-text-stroke: 2px #a12c0b;
-  paint-order: stroke background;
+  /* paint-order: stroke background;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
   border: 2px solid #A12C0B; */
@@ -180,6 +194,8 @@ form{
   display: flex;
   gap: 16px;
   border: none;
+  min-width: 0;
+  /* flex: 1; */
 }
 
 .formWide{
