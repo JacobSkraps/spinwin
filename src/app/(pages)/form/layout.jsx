@@ -1,8 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
-import localFont from 'next/font/local'
 
-const Gabarito = localFont({ src: '../../../fonts/Gabarito-Black.ttf' })
 // import { Gabarito } from '../../../fonts/Gabarito-Black.ttf'
 import { Poppins } from 'next/font/google'
 
@@ -28,7 +26,7 @@ export default function FormLayout({ children }) {
       <section id="formSiding">
         <div id="formSidingContainer">
           <div className="relative">
-            <h1 className="contestInfo evilInfo" aria-hidden="true">CONTEST INFO</h1>
+            {/* <h1 className="contestInfo evilInfo" aria-hidden="true">CONTEST INFO</h1> */}
             <h1 className="contestInfo ">CONTEST INFO</h1>
           </div>
           <p className="paragraphText"> </p>
@@ -43,8 +41,7 @@ export default function FormLayout({ children }) {
         </div>
         <div id="formSidingBodyParagraph">
           <p className="paragraphText bottom">
-            *Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days]. BuyMore Dollars Inc. reserves the right to remove any entries at their discretion.  [*Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days] By entering, you agree to the contest rules and regulations and consent to receive communications from BuyMore Dollars and our sponsors.
-          </p>
+          *Prizes are subject to adherent contest rules and regulations.Delivery timelines may vary, with an estimated arrival of 60-90 days          </p>
         </div>
       </section>
       <div id="formContent">

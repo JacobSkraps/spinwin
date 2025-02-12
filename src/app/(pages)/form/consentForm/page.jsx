@@ -39,10 +39,11 @@ export default function FormPage() {
 
     const [parentBirthday, setParentBirthday] = useState('');
 
-    const addPeopleForm = document.querySelector('.add');
 
 
     useEffect(() => {
+        const addPeopleForm = document.querySelector('.add');
+
         // Retrieve birthday from local storage
         const storedType = localStorage.getItem('accountType');
         setType(storedType);
@@ -118,6 +119,8 @@ export default function FormPage() {
         }
     }, []);
     const handleFormSubmit = async (e) => {
+        const addPeopleForm = document.querySelector('.add');
+
         e.preventDefault();
         
         // Add to Firestore
