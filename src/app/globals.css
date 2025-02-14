@@ -377,6 +377,15 @@ input[type="checkbox"] {
   display: none;
 }
 
+/* **************************    Game Screen        *********************************** */
+.GameSplit{
+  display: flex;
+  flex-direction: row;
+}
+.GameInteract{
+  width: 40%;
+}
+
 @media only screen and (max-width: 850px) {
   #formBody{
     width: 350px;
