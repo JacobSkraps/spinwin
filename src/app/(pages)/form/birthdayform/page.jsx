@@ -84,7 +84,7 @@ return (
 			<div className='backButton pageButton'>
 				<Link href="../">Back</Link>
 			</div>
-			<button className='nextButton pageButton' type="submit">Next</button>
+			<button className='nextButton pageButton' type="submit">Submit</button>
 			</div>
 		</form>
 		{/* <Link id='LinkForward' href={`/form/${nextPage}`}> Next</Link> */}
