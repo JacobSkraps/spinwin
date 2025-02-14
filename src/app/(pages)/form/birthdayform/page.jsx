@@ -85,9 +85,9 @@ return (
 				<Link href="../">Back</Link>
 			</div>
 			<button className='nextButton pageButton' type="submit">Submit</button>
+			{/* Not styled */}
 			</div>
 		</form>
-		{/* <Link id='LinkForward' href={`/form/${nextPage}`}> Next</Link> */}
 		</section>
 	);
 }
