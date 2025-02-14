@@ -66,7 +66,7 @@ export default function FormPage() {
     <div>
       <h3 className='formHeading'>Guardian Information</h3>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
-        <fieldset className="fieldset2">
+        <fieldset className="fieldset2 u-spacing-mb-m">
           <div className='formElement formHalf'>
             <label htmlFor="firstName" className='formLabel'>First Name</ label>        
             <input name="firstName" type="text" id="firstName" placeholder="First Name"required />
@@ -88,7 +88,7 @@ export default function FormPage() {
             </div>
           </div> 
         </fieldset>
-        <fieldset className='fieldset2'>
+        <fieldset className='fieldset2 u-spacing-mb-m'>
           <div className='formElement formHalf'>
             <label htmlFor="phone" className='formLabel'>Phone Number</ label>        
             <input name="phone" type="phone" id="phone" placeholder="Phone" required />

@@ -65,13 +65,23 @@ export default function FormPage2() {
         <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
         <h3 className='formSubHeading'>Address</h3>
 
-        <div className='formElement formWide'>
-            <label htmlFor="streetAddress" className='formLabel '>Street Name</ label>        
-            <input name="streetAddress" type="text" placeholder="Street Name" id="streetAddress" className='formInput' required />
+        <div className='formElement formWide u-spacing-mb-m'>
+            <label htmlFor="streetAddress" className='formLabel '>Street Address</ label>        
+            <input name="streetAddress" type="text" placeholder="Street Address" id="streetAddress" className='formInput' required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
                 *Address must include a street name and number.
+                </p>
+            </div>
+        </div>
+        <div className='formElement formWide u-spacing-mb-m'>
+            <label htmlFor="province" className='formLabel'>Province</ label>        
+            <input name="province" type="text" id="province" placeholder="Province" required />
+            <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *Province is required.<br/>
+                *Enter a valid province name.
                 </p>
             </div>
         </div>
@@ -107,7 +117,7 @@ export default function FormPage2() {
             <div className='backButton pageButton'>
                 <Link href="./mainForm">Back</Link>
             </div>
-            <button className='nextButtonButton' type="submit">Submit</button>
+            <button className='nextButton pageButton' type="submit">Submit</button>
         </div>
 
         </form>
