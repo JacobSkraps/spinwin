@@ -65,10 +65,10 @@ export default function FormPage() {
     <div>
       <h2 className='formHeading'>Personal Information</h2>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
-        <fieldset className='fieldset2'>
-          <div className='formElement'>
+        {/* <fieldset className='fieldset2'>
+          <div className='formElement'> */}
         <fieldset className='fieldset2 u-spacing-mb-m'>
-          <div className='formElement formHalf'>
+          <div className='formElement'>
             <label htmlFor="firstName" className='formLabel'>First Name</ label>        
             <input name="firstName" type="text" placeholder="First Name" id="firstName" className='formHalf' required />
             <div className='formErrorBar'>
