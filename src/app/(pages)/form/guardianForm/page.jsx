@@ -66,10 +66,11 @@ export default function FormPage() {
     <div>
       <h3 className='formHeading'>Guardian Information</h3>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
+
         <fieldset className="fieldset2 u-spacing-mb-m">
           <div className='formElement formHalf'>
             <label htmlFor="firstName" className='formLabel'>First Name</ label>        
-            <input name="firstName" type="text" id="firstName" placeholder="First Name"required />
+            <input name="firstName" type="text" id="firstName" placeholder="First Name" className='formHalf' required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *First name is required.<br/>
@@ -77,9 +78,9 @@ export default function FormPage() {
                 </p>
             </div>
           </div>
-          <div className='formElement formHalf'>
+          <div className='formElement'>
             <label htmlFor="lastName" className='formLabel'>Last Name</ label>        
-            <input name="lastName" type="text" id="lastName" placeholder="Last Name" required />
+            <input name="lastName" type="text" id="lastName" placeholder="Last Name" className='formHalf' required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Last name is required.<br/>
@@ -91,7 +92,7 @@ export default function FormPage() {
         <fieldset className='fieldset2 u-spacing-mb-m'>
           <div className='formElement formHalf'>
             <label htmlFor="phone" className='formLabel'>Phone Number</ label>        
-            <input name="phone" type="phone" id="phone" placeholder="Phone" required />
+            <input name="phone" type="phone" id="phone" placeholder="Phone" className='formHalf' required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Phone number is required.<br/>
@@ -100,9 +101,9 @@ export default function FormPage() {
                 </p>
             </div>
           </div>
-          <div className='formElement formHalf'>
+          <div className='formElement'>
             <label htmlFor="email" className='formLabel'>Email</ label>        
-            <input name="email" type="email" id="email" placeholder="Email" required />
+            <input name="email" type="email" id="email" placeholder="Email" className='formHalf' required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Email address is required.<br/>
@@ -113,9 +114,9 @@ export default function FormPage() {
 
         </fieldset>
         
-        <div className='formElement formWide'>
+        <div className='formElement'>
           <label htmlFor="birthday" className='formLabel'>Date of Birth</ label>        
-          <input name="birthday" type="date" placeholder="Birthday" id="birthday" required />
+          <input name="birthday" type="date" placeholder="Birthday" id="birthday" className='formWide' required />
           <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Date of Birth is required<br/>

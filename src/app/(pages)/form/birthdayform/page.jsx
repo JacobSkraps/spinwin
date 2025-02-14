@@ -9,6 +9,7 @@ import inputErrorCheck from '@/functions/inputErrorCheck';
 
 
 export default function Home() {
+
 const addPeopleFormRef = useRef(null);
 
 let nextPage;

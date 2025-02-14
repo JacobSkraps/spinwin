@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-
-import Link from 'next/link'
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,16 +19,15 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// init services
-const db = getFirestore()
+// Init services
+const db = getFirestore();
 
-// collection ref
-const colRef = collection(db, 'formData')
+// Collection ref
+const colRef = collection(db, 'formData');
 
 export default function FormPage() {
     const [type, setType] = useState('');
     const [birthday, setBirthday] = useState('');
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phone, setPhone] = useState('');
@@ -36,9 +35,7 @@ export default function FormPage() {
     const [addressOne, setAddressOne] = useState('');
     const [addressTwo, setAddressTwo] = useState('');
     const [postal, setPostal] = useState('');
-
     const [parentBirthday, setParentBirthday] = useState('');
-
 
 
     useEffect(() => {
@@ -118,22 +115,20 @@ export default function FormPage() {
             });
         }
     }, []);
+
     const handleFormSubmit = async (e) => {
         const addPeopleForm = document.querySelector('.add');
 
         e.preventDefault();
         
-        // Add to Firestore
-        // await addDoc(colRef, {
-        //     dateOfBirth: birthday,
-        // });
-        console.log(`${type}`)
-        if(type == "Child"){
-            e.preventDefault();
+        const formData = new FormData(e.target);
+        const consentToCommunications = formData.get('consentCommunications');
+        const consentToRules = formData.get('consentRules');
+
+        if(type === "Child") {
             await addDoc(colRef, {
                 accountType: type,
                 childDateOfBirth: birthday,
-
                 guardianFirstName: firstName,
                 guardianLastName: lastName,
                 guardianPhone: phone,
@@ -141,18 +136,14 @@ export default function FormPage() {
                 guardianAddressOne: addressOne,
                 guardianAddressTwo: addressTwo,
                 guardianPostal: postal,
-
                 guardianDateOfBirth: parentBirthday,
-            }).then(() => {
-                addPeopleForm.reset();
+                consentToCommunications: consentToCommunications,
+                consentToRules: consentToRules
             });
-        }
-        if(type == "Adult"){
-            e.preventDefault();
+        } else if(type === "Adult") {
             await addDoc(colRef, {
                 accountType: type,
                 dateOfBirth: birthday,
-
                 firstName: firstName,
                 lastName: lastName,
                 phone: phone,
@@ -160,30 +151,16 @@ export default function FormPage() {
                 addressOne: addressOne,
                 addressTwo: addressTwo,
                 postal: postal,
-            }).then(() => {
-                addPeopleForm.reset();
+                consentToCommunications: consentToCommunications,
+                consentToRules: consentToRules
             });
         }
 
-        const formData = new FormData(addPeopleForm);
-
-        let consentInputs = ["consentCommunications", "consentRules"];
-
-        consentInputs.forEach(input=>{
-            let inputField = document.getElementById(input);
-            let inputValue = formData.get(input);
-            console.log(inputValue)
-            if (inputValue == null){
-                console.log("changed to red")
-                inputField.style.border = "2px solid red"
-            } else if (inputValue === "yes"){
-                console.log("changed to white")
-                inputField.style.border = " 2px solid white"
-            }
-        })
-
         // Clear local storage
-        localStorage.removeItem('birthday');
+        localStorage.clear();
+
+        // Redirect
+        redirect(`/form/birthdayform`);
     };
 
     return (
@@ -193,7 +170,7 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentCommunications" type="checkbox" id="consentCommunications" className='consentBox' value="yes" required />
                     <span className='checkmark'></span>
-                    <label htmlFor="consentCommunications" className='formLabel'>Consent to be communicated by us</ label> 
+                    <label htmlFor="consentCommunications" className='formLabel'>I consent to receiving communications regarding BuyMore Dollars products and sponsors.</ label> 
                     <div className='formErrorBar formErrorCheck'>
                         <p className='formErrorMessage'>
                         *Consent is required.
@@ -203,7 +180,7 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentRules" type="checkbox" id="consentRules" className='consentBox'  value="yes" required />
                     <span className='checkmark'></span>
-                    <label htmlFor="consentRules" className='formLabel'>Consent to be rules</ label>        
+                    <label htmlFor="consentRules" className='formLabel'>I agree to the contest <Link href="./legalPage">rules and regulations.</Link></ label>        
                     <div className='formErrorBar formErrorCheck'>
                         <p className='formErrorMessage'>
                         *Consent is required.
@@ -220,5 +197,3 @@ export default function FormPage() {
         </div>
     );
 }
-
-
