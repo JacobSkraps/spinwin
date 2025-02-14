@@ -7,19 +7,7 @@ import {
   addDoc, deleteDoc, doc
 } from 'firebase/firestore';
 import Link from 'next/link'
-import { Gabarito } from 'next/font/google'
-import { Poppins } from 'next/font/google'
 
-const gabarito = Gabarito({
-  weight: ['900'],
-  style: ['normal'],
-  subsets: ['latin']
-})
-const poppins = Poppins({
-  weight: ['500', '700'],
-  style: ['normal'],
-  subsets: ['latin']
-})
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
