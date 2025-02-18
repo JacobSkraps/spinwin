@@ -1,3 +1,6 @@
+import wheelComponent from "@/app/components/wheel";
+import { gsap } from 'gsap';
+
 export default function Home() {
     return(
         <div className="GameSplit">
@@ -10,7 +13,7 @@ export default function Home() {
             </div>
             <div id="GameGame">
                 <div id="wheel">
-                    <p>Wheel</p>
+                    <wheelComponent></wheelComponent>
                 </div>
             </div>
         </div>
