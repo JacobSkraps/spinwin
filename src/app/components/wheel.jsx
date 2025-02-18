@@ -604,4 +604,4 @@ const WheelComponent = (props) => (
     </g>
   </svg>
 )
-export default WheelComponent
+export default WheelComponent;

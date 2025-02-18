@@ -1,5 +1,8 @@
-// import WheelComponent from "@/app/components/wheel";
-import { WheelComponent } from "@/../public/wheel.jsx";
+"use client";
+
+// import WheelComponent from "@/app/components/wheel.svg";
+import WheelComponent from "/public/wheel.svg";
+import Image from 'next/image';
 import { gsap } from 'gsap';
 
 export default function Home() {
@@ -14,7 +17,12 @@ export default function Home() {
             </div>
             <div id="GameGame">
                 <div id="wheel">
-                    <img src={ WheelComponent } alt="" />
+                    {/* <img src={ WheelComponent } alt="" /> */}
+                    <Image
+                    priority
+                    src={ WheelComponent }
+                    alt="Spin the wheel!"
+                    />
                 </div>
             </div>
         </div>
