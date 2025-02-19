@@ -8,14 +8,14 @@ import { useEffect } from 'react';
 
 export default function Home() {
         useEffect(() => {
-            // const wheel = document.getElementById('theWheel');
-            // const spinningPart = wheel.getElementById('spinningPart');
-
+            gsap.set(spinningPart, {
+                transformOrigin: "50% 50%"
+            });
             wheel.addEventListener('click', () => {
                 gsap.to(spinningPart, {
                     rotation: 360,
-                    duration: 1,
-                    ease: "power2.inOut"
+                    duration: 4,
+                    ease: "power4.out"
                 });
             });
                 return () => {
