@@ -9,98 +9,28 @@ import { redirect } from 'next/navigation';;
 
 export default function Home() {
     // const [randomNumber, setRandomNumber] = useState(undefined);
+    // const [win, setWin] = useState(false);
+    // const [value, setValue] = useState(0);
+    // const [rotate, setRotate] = useState(0);
+    let storedOutcome = {}
+
     const spinWheel = () => {
-        let randomOutcome = Math.random();
-        const outcomes = [
-            { win: false,
-            type: "Coupon",
-            value: 0 },
-            { win: false,
-            type: "Coupon",
-            value: 0 },
-            { win: false,
-            type: "Coupon",
-            value: 0 },
-            { win: false,
-            type: "Coupon",
-            value: 0 },
-
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 20 },
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 20 },
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 20 },
-
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 100 },
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 100 },
-
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 750 },
-            
-            { win: true,
-            type: "BuyMoreDollars",
-            value: 10000 }
-        ];
         wheel.removeEventListener('click', spinWheel);
         gsap.set(spinningPart, {
             transformOrigin: "50% 50%"
         });
+        let rotationAmount = storedOutcome.toRotate + 1080
+        console.log(`1080 + ${storedOutcome.toRotate} = ${rotationAmount}`)
         gsap.to(spinningPart, {
-            rotation: 1080,
+            rotation: rotationAmount,
             duration: 4,
             ease: "power1.out",
             onComplete: () => {
                 // let randomOutcome = Math.random();
-                let outcome = {}
-                if (randomOutcome < 0.099){
-                    outcome = outcomes[0]
-                }
-                else if (randomOutcome < 0.198){
-                    outcome = outcomes[1]
-                }
-                else if (randomOutcome < 0.297){
-                    outcome = outcomes[2]
-                }
-                else if (randomOutcome < 0.396){
-                    outcome = outcomes[3]
-                }
-                else if (randomOutcome < 0.495){
-                    outcome = outcomes[4]
-                }
-                else if (randomOutcome < 0.594){
-                    outcome = outcomes[5]
-                }
-                else if (randomOutcome < 0.693){
-                    outcome = outcomes[6]
-                }
-                else if (randomOutcome < 0.792){
-                    outcome = outcomes[7]
-                }
-                else if (randomOutcome < 0.951){
-                    outcome = outcomes[8]
-                }
-                else if (randomOutcome < 0.998){
-                    outcome = outcomes[9]
-                }
-                else{
-                    outcome = outcomes[10]
-                }
-                console.log(outcome);
-                console.log(outcome.win);
-                console.log(outcome.value);
-                localStorage.setItem('outcomeWin', outcome.win);
-                localStorage.setItem('outcomeValue', outcome.value);
+                localStorage.setItem('outcomeWin', storedOutcome.win);
+                localStorage.setItem('outcomeValue', storedOutcome.value);
 
-                redirect(`/outcome`)
+                // redirect(`/outcome`)
             }
         });
     }
@@ -109,6 +39,100 @@ export default function Home() {
             transformOrigin: "50% 50%"
         });
         wheel.addEventListener('click', spinWheel);
+        let randomOutcome = Math.random();
+        const outcomes = [
+            { win: false,
+            type: "Coupon",
+            toRotate: 10,
+            value: 0 },
+            { win: false,
+            type: "Coupon",
+            toRotate: 88,
+            value: 0 },
+            { win: false,
+            type: "Coupon",
+            toRotate: 157,
+            value: 0 },
+            { win: false,
+            type: "Coupon",
+            toRotate: 228,
+            value: 0 },
+
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 122,
+            value: 20 },
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 262,
+            value: 20 },
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 334,
+            value: 20 },
+
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 45,
+            value: 100 },
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 298,
+            value: 100 },
+
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 192,
+            value: 750 },
+
+            { win: true,
+            type: "BuyMoreDollars",
+            toRotate: 30,
+            value: 10000, }
+        ];
+        // let storedOutcome = {}
+        if (randomOutcome < 0.24){
+            storedOutcome = outcomes[0]
+        }
+        else if (randomOutcome < 0.48){
+            storedOutcome = outcomes[1]
+        }
+        else if (randomOutcome < 0.72){
+            storedOutcome = outcomes[2]
+        }
+        else if (randomOutcome < 0.97){
+            storedOutcome = outcomes[3]
+        }
+        else if (randomOutcome < 0.975){
+            storedOutcome = outcomes[4]
+        }
+        else if (randomOutcome < 0.98){
+            storedOutcome = outcomes[5]
+        }
+        else if (randomOutcome < 0.985){
+            storedOutcome = outcomes[6]
+        }
+        else if (randomOutcome < 0.99125){
+            storedOutcome = outcomes[7]
+        }
+        else if (randomOutcome < 0.9975){
+            storedOutcome = outcomes[8]
+        }
+        else if (randomOutcome < 0.999){
+            storedOutcome = outcomes[9]
+        }
+        else{
+            storedOutcome = outcomes[10]
+        }
+        console.log(storedOutcome);
+        console.log(storedOutcome.win);
+        console.log(storedOutcome.value);
+        // setWin(storedOutcome.win);
+        // setValue(storedOutcome.value);
+        // setRotate(storedOutcome.toRotate);
+        // console.log(win);
+        // console.log(value);
+        // console.log(rotate);
     },[]); 
 
     return(
