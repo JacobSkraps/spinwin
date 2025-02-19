@@ -51,9 +51,9 @@ export default function Home() {
             transformOrigin: "50% 50%"
         });
         gsap.to(spinningPart, {
-            rotation: 360,
+            rotation: 1080,
             duration: 4,
-            ease: "power4.out",
+            ease: "power1.out",
             onComplete: () => {
                 // let randomOutcome = Math.random();
                 let outcome = {}

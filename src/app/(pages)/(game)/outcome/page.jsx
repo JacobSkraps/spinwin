@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import grandPrize from "/public/tenkbmd.png";
+import secondPrize from "/public/sevenfiftybmd.png";
+import thirdPrize from "/public/hundredbmd.png";
+import fourthPrize from "/public/twentybmd.png";
+
 
 export default function Home() {
     const [win, setWin] = useState('');
@@ -13,10 +18,10 @@ export default function Home() {
         const value = localStorage.getItem('outcomeValue');
         setValue(value);
 
-        console.log(win);
+        console.log(`win: ${win}`);
         console.log(value);
-
-        if(win === false){
+        
+        if(win == false){
             let myHeader = document.querySelector("#outcomeHeader");
             let mySubHeader = document.querySelector("#outcomeSubHeader");
             let myPara = document.querySelector("#outcomePara");
@@ -49,7 +54,9 @@ export default function Home() {
         <div>
             <h1 className="contestInfo" id="outcomeHeader">Loading</h1>
             <div className="GameSplit">
-                <div className="GameInteract"></div>
+                <div className="GameInteract">
+                    <img src="" alt="" />
+                </div>
                 <div className="OutcomeDisplay">
                     <h2 id='outcomeSubHeader'>Loading...</h2>
                     <p id='outcomePara'>Loading...</p>
