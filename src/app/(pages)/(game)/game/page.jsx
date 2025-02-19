@@ -1,15 +1,15 @@
 "use client";
 
-// import WheelComponent from "@/app/components/wheel.svg";
-import WheelComponent from "/public/wheel.svg";
-// import Image from 'next/image';
+import WheelComponent from "@/app/components/wheel.jsx";
+// import WheelComponent from "/public/wheel.svg";
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useEffect } from 'react';
 
 export default function Home() {
         useEffect(() => {
-            const wheel = document.getElementById('theWheel').contentDocument;
-            const spinningPart = wheel.getElementById('spinningPart');
+            // const wheel = document.getElementById('theWheel');
+            // const spinningPart = wheel.getElementById('spinningPart');
 
             wheel.addEventListener('click', () => {
                 gsap.to(spinningPart, {
@@ -40,6 +40,7 @@ export default function Home() {
             </div>
             <div id="GameGame">
                 <div id="wheel">
+                    {/* <Image src={WheelComponent}></Image> */}
                     <WheelComponent className="wheelComponent" id="theWheel" />
                 </div>
             </div>
