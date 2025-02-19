@@ -397,7 +397,9 @@ input[type="checkbox"] {
 
 
 /****************************************              GAME              ****************************************/
-
+#GameGame{
+  width: 100%;
+}
 
 .GameSplit{
   width: 1200px;
@@ -435,6 +437,12 @@ input[type="checkbox"] {
 }
 #GoodLuck{
   font-size: 2.5rem;
+}
+
+.wheelComponent{
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 40px #FF95D4);
 }
 
 /****************************************              Mobile              ****************************************/

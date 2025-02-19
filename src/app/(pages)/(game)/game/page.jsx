@@ -2,10 +2,33 @@
 
 // import WheelComponent from "@/app/components/wheel.svg";
 import WheelComponent from "/public/wheel.svg";
-import Image from 'next/image';
+// import Image from 'next/image';
 import { gsap } from 'gsap';
+import { useEffect } from 'react';
 
 export default function Home() {
+        useEffect(() => {
+            const wheel = document.getElementById('theWheel').contentDocument;
+            const spinningPart = wheel.getElementById('spinningPart');
+
+            wheel.addEventListener('click', () => {
+                gsap.to(spinningPart, {
+                    rotation: 360,
+                    duration: 1,
+                    ease: "power2.inOut"
+                });
+            });
+                return () => {
+                wheel.removeEventListener('click', () => {
+                    gsap.to(spinningPart, {
+                        rotation: 360,
+                        duration: 1,
+                        ease: "power2.inOut"
+                    });
+                });
+            };
+        },[]); 
+
     return(
         <div className="GameSplit">
             <div className="GameInteract">
@@ -17,12 +40,7 @@ export default function Home() {
             </div>
             <div id="GameGame">
                 <div id="wheel">
-                    {/* <img src={ WheelComponent } alt="" /> */}
-                    <Image
-                    priority
-                    src={ WheelComponent }
-                    alt="Spin the wheel!"
-                    />
+                    <WheelComponent className="wheelComponent" id="theWheel" />
                 </div>
             </div>
         </div>
