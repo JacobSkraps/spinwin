@@ -24,7 +24,7 @@ export default function FormPage() {
         localStorage.setItem('postal', postalValue);
 
 
-        let guardianFormInputs = ["streetAddress", "province", "city", "postalCode"];
+        let guardianFormInputs = ["streetAddress", "city", "postalCode"];
     
         //* check all if there is anything wrong
         guardianFormInputs.forEach(input => {
@@ -59,6 +59,37 @@ return (
     <div>
         <h3 className='formHeading'>Address</h3>
             <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
+                <div className='formElement'>
+                    <label htmlFor="streetAddress" className='formLabel'>Street Name</ label>        
+                    <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Name" className='formWide' required />
+                    <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *Address is required.<br/>
+                *Address must include a street name and number.
+                </p>
+            </div>
+                </div>
+                <div className='formElement'>
+                    <label htmlFor="city" className='formLabel'>City</ label>        
+                    <input name="city" type="text" id="city" placeholder="City"className='formHalf' required />
+                    <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *City is required.<br/>
+                *Enter a valid city name.
+                </p>
+            </div>
+                </div>
+                <div className='formElement'>
+                    <label htmlFor="postalCode" className='formLabel'>Postal Code</ label>        
+                    <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" className='formHalf' required />
+                    <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                  *Postal code is required.<br/>
+                  *Max 7 characters. <br />
+                  *Enter a valid postal code in the correct format (e.g., A1A 1A1 for Canada).
+                </p>
+            </div>
+                </div>
 
                 <div className='formElement formWide u-spacing-mb-m'>
                     <label htmlFor="streetAddress" className='formLabel'>Street Address</ label>        
@@ -108,7 +139,7 @@ return (
                     <div className='backButton pageButton'>
                         <Link href="./guardianForm">Back</Link>
                     </div>
-                    <button className='nextButton pageButton' type="submit">Submit</button>
+                    <button className='nextButtonButton' type="submit">Submit</button>
                 </div>
             </form>
         </div>

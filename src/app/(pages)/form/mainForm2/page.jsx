@@ -65,13 +65,10 @@ export default function FormPage2() {
         <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
         <h3 className='formSubHeading'>Address</h3>
 
-        {/* <div className='formElement'>
+        <div className='formElement'>
             <label htmlFor="streetAddress" className='formLabel '>Street Name</ label>        
-            <input name="streetAddress" type="text" placeholder="Street Name" id="streetAddress" className='formWide' required /> */}
+            <input name="streetAddress" type="text" placeholder="Street Name" id="streetAddress" className='formWide' required />
 
-        <div className='formElement u-spacing-mb-m'>
-            <label htmlFor="streetAddress" className='formLabel '>Street Address</ label>        
-            <input name="streetAddress" type="text" className='formWide formInput' placeholder="Street Address" id="streetAddress" required />
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
@@ -121,7 +118,7 @@ export default function FormPage2() {
             <div className='backButton pageButton'>
                 <Link href="./mainForm">Back</Link>
             </div>
-            <button className='nextButton pageButton' type="submit">Submit</button>
+            <button className='nextButtonButton' type="submit">Submit</button>
         </div>
 
         </form>

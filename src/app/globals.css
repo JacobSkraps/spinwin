@@ -64,7 +64,7 @@ body{
 }
 .contestInfo{
   /* CONTEST INFO */
-  font-family: 'gabarito';
+  /* font-family: 'Gabarito Black'; */
   font-style: normal;
   font-weight: 900;
   font-size: 3.5rem;
@@ -73,9 +73,9 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* text-fill-color: transparent;
+  /* text-fill-color: transparent; */
   -webkit-text-stroke: 2px #a12c0b;
-  paint-order: stroke background;
+  /* paint-order: stroke background;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
   border: 2px solid #A12C0B; */
@@ -103,9 +103,50 @@ body{
   font-size: 1rem;
   color: white;
   line-height: 2rem;
-  background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(18,5,37,1) 100%);
+  /* background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(18,5,37,1) 100%); */
 }
 
+input{
+  font-family: 'poppins';
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 10px;
+  border: #FFFFFF solid 2px;
+  background-color: #4C2A4E;
+  color: white;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.formHeading{
+  font-family: 'poppins';
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: white;
+  margin: 12px 0 32px 0;
+  
+}
+
+.formSubHeading{
+  width: 100%;
+  font-family: 'poppins';
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 24px;
+}
+.formLabel{
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 12px;
+  /* max-width: 40%; */
+}
+
+.formHalf .formWide{
+  margin-bottom: 24px;
+}
 /** UTILITY **/
 .u-spacing-mt-xl {
   margin-top: var(--spacing--xl);
@@ -121,7 +162,7 @@ body{
 
 .u-spacing-mb-l {
   margin-bottom: var(--spacing--l);
-}
+  }
 
 .bottom{
   /* align-self: flex-end; */
@@ -129,7 +170,7 @@ body{
   line-height: 1rem;
 }
 
-/* #formBody{
+#formBody{
   width: 1200px;
   height: 652px;
   margin: 80px auto;
@@ -153,9 +194,9 @@ body{
 
 #formSidingContainer{
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  flex-direction: column;}
+  /* justify-content: space-between; */
+
 #formContent{
   width: 45%;
 }
@@ -177,6 +218,8 @@ form{
   display: flex;
   gap: 16px;
   border: none;
+  min-width: 0;
+  /* flex: 1; */
 }
 .formHalf{
   width: 230px;
@@ -200,9 +243,10 @@ form{
   margin-top: 12px;
 }
 
-.formHalf{
+/* .formHalf{
   width: 50%;
-}
+} */
+
 
 .formElement{
   position: relative;
@@ -220,12 +264,55 @@ form{
 .formErrorBar{
   position: absolute;
   z-index: 555;
+  top: 92px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  filter: drop-shadow(4px 4px 4px black);
+  display: none;
+}
+
+.formErrorCheck{
+  top: 50px;
+}
+
+.formErrorMessage{
+  color: black;
+  padding: 10px 14px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* this is for the error bar to appear */
+input:focus ~ .formErrorBar{
+  display: block;
+}
+
+.formError{
+  display: none;
+
+}
+
+/**  ERROR BAR  **/
+
+.formErrorBar{
+  position: absolute;
+  z-index: 555;
   top: 80px;
   width: 100%;
   border-radius: 10px;
   background-color: white;
   filter: drop-shadow(4px 4px 4px black);
   display: none;
+}
+
+
+.formButtons{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
 }
 .u-spacing-mt-m {
   margin-top: var(--spacing--m);
@@ -234,7 +321,25 @@ form{
 .u-spacing-mb-m {
   margin-bottom: var(--spacing--m);
 }
+.formCheck{
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 8px;
+}
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+
+  width: 40px;
+  height: 40px;
+  margin-right: 24px;
+
+}
 .u-spacing-mt-s {
   margin-top: var(--spacing--s);
 }
@@ -244,6 +349,55 @@ form{
 }
 
 
+.pageButton{
+  width: 106px;
+  height: 48px;
+  border: 4px solid #0E1F25;
+  border-radius: 10px;
+  display: flex;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+.nextButton{
+  background: linear-gradient(180deg, #0094D7 0%, #00BDDD 15%, #FFFFFF 50%, #00BDDD 85%, #0094D7 100%);
+  box-shadow: 0px 0px 15px 2px #91E4FF;
+}
+.backButton{
+  background: linear-gradient(180deg, #695507 0%, #F8E74C 15.49%, #FFF3EF 50.49%, #F8E74C 84.99%, #695507 100%);
+  box-shadow: 0px 0px 15px 2px #F8D757;
+  margin-right: 16px;
+}
+
+.nextButtonButton{
+  width: 106px;
+  height: 48px;
+  border: 4px solid #0E1F25;
+  border-radius: 10px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+
+  background: linear-gradient(180deg, #0094D7 0%, #00BDDD 15%, #FFFFFF 50%, #00BDDD 85%, #0094D7 100%);
+  box-shadow: 0px 0px 15px 2px #91E4FF;
+  margin-right: auto;
+
+  cursor: pointer;
+}
+.inactive{
+  filter: grayscale(0.5);
+  filter: brightness(0.9);
+}
 .No-Display{
   display: none;
 }
@@ -257,6 +411,59 @@ form{
 .GameInteract{
   width: 40%;
 }
+
+
+
+/****************************************              GAME              ****************************************/
+#GameGame{
+  width: 100%;
+}
+
+.GameSplit{
+  width: 1200px;
+  height: 652px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.GameInteract{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#GameHeader{
+  font-size: 6rem;
+  padding: 32px;
+  text-align: center;
+}
+
+.GameIntructionsButton{
+  padding: 16px 56px;  
+  border: #FF95D4 2px solid;
+  background-color: #4C2A4E;
+  text-align: center;
+  filter: drop-shadow(0 0 40px #FF95D4);
+  margin: 40px auto;
+  cursor: pointer;
+}
+#GameIntructionsClickText{
+  -webkit-text-stroke: 0px;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+#GoodLuck{
+  font-size: 2.5rem;
+}
+
+.wheelComponent{
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 40px #FF95D4);
+}
+
+/****************************************              Mobile              ****************************************/
 
 @media only screen and (max-width: 850px) {
   #formBody{

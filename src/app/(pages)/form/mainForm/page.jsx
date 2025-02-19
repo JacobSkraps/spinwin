@@ -65,9 +65,7 @@ export default function FormPage() {
     <div>
       <h2 className='formHeading'>Personal Information</h2>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
-        {/* <fieldset className='fieldset2'>
-          <div className='formElement'> */}
-        <fieldset className='fieldset2 u-spacing-mb-m'>
+        <fieldset className='fieldset2'>
           <div className='formElement'>
             <label htmlFor="firstName" className='formLabel'>First Name</ label>        
             <input name="firstName" type="text" placeholder="First Name" id="firstName" className='formHalf' required />
@@ -118,7 +116,7 @@ export default function FormPage() {
           <div className='backButton pageButton'>
               <Link href="./birthdayform">Back</Link>
           </div>
-          <button className='nextButton pageButton' type="submit">Submit</button>
+          <button className='nextButtonButton' type="submit">Submit</button>
         </div>
 
       </form>
