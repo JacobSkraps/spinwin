@@ -68,10 +68,21 @@ export default function FormPage2() {
         <div className='formElement'>
             <label htmlFor="streetAddress" className='formLabel '>Street Name</ label>        
             <input name="streetAddress" type="text" placeholder="Street Name" id="streetAddress" className='formWide' required />
+
             <div className='formErrorBar'>
                 <p className='formErrorMessage'>
                 *Address is required.<br/>
                 *Address must include a street name and number.
+                </p>
+            </div>
+        </div>
+        <div className='formElement u-spacing-mb-m'>
+            <label htmlFor="province" className='formLabel'>Province</ label>        
+            <input name="province" type="text" id="province" className='formWide formInput' placeholder="Province" required />
+            <div className='formErrorBar'>
+                <p className='formErrorMessage'>
+                *Province is required.<br/>
+                *Enter a valid province name.
                 </p>
             </div>
         </div>

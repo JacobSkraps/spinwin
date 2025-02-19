@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'Gabarito Black';
-  src: url('/fonts/Gabarito-Black.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gabarito Bold';
-  src: url('/fonts/Gabarito-Bold.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Gabarito Black";
+  src: url(/fonts/Gabarito-Black.ttf);
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-size--p: clamp(0.875rem, 0.776rem + 0.526vw, 1rem);
+  --font-size--form-header: clamp(2rem, 1.868rem + 0.702vw, 2.5rem);
+  --font-size--form-subheader: clamp(1.25rem, 1.184rem + 0.351vw, 1.5rem);
+  --spacing--large: clamp(1.5rem, 1.368rem + 0.702vw, 2rem);
+  --spacing--xl: 32px;
+  --spacing--l: 24px;
+  --spacing--m: 12px;
+  --spacing--s: 8px;
+  --spacing--xs: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -103,6 +103,7 @@ body{
   font-size: 1rem;
   color: white;
   line-height: 2rem;
+  background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(18,5,37,1) 100%);
 }
 
 input{
@@ -145,7 +146,22 @@ input{
 
 .formHalf .formWide{
   margin-bottom: 24px;
+/** UTILITY **/
+.u-spacing-mt-xl {
+  margin-top: var(--spacing--xl);
 }
+
+.u-spacing-mb-xl {
+  margin-bottom: var(--spacing--xl);
+}
+
+.u-spacing-mt-l {
+  margin-top: var(--spacing--l);
+}
+
+.u-spacing-mb-l {
+  margin-bottom: var(--spacing--l);
+  }
 
 .bottom{
   /* align-self: flex-end; */
@@ -153,7 +169,7 @@ input{
   line-height: 1rem;
 }
 
-#formBody{
+/* #formBody{
   width: 1200px;
   height: 652px;
   margin: 80px auto;
@@ -172,13 +188,14 @@ input{
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
 
 #formSidingContainer{
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
+
 }
 #formContent{
   width: 45%;
@@ -230,11 +247,11 @@ form{
   width: 50%;
 } */
 
+
 .formElement{
   position: relative;
   display: flex;
   flex-direction: column;
-  /* width: auto; */
   margin-bottom: 18px;
 }
 
@@ -275,26 +292,20 @@ input:focus ~ .formErrorBar{
 
 .formError{
   display: none;
+
 }
-.formWide:focus + .formError{
-  display: block;
-  top: 76px;
+
+/**  ERROR BAR  **/
+
+.formErrorBar{
   position: absolute;
+  z-index: 555;
+  top: 80px;
+  width: 100%;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 8px;
-  padding: 8px;
-  filter: drop-shadow( 0.1rem 0.5rem 0.5rem rgb(10, 10, 10));
-  z-index: 8;
-}
-.formHalf:focus + .formError{
-  display: block;
-  top: 76px;
-  position: absolute;
-  background-color: white;
-  border-radius: 8px;
-  padding: 8px;
-  filter: drop-shadow( 0.1rem 0.5rem 0.5rem rgb(10, 10, 10));
-  z-index: 8;
+  filter: drop-shadow(4px 4px 4px black);
+  display: none;
 }
 
 
@@ -303,9 +314,12 @@ input:focus ~ .formErrorBar{
   display: flex;
   flex-direction: row;
 }
+.u-spacing-mt-m {
+  margin-top: var(--spacing--m);
+}
 
-#consentPage{
-  flex-direction: column;
+.u-spacing-mb-m {
+  margin-bottom: var(--spacing--m);
 }
 .formCheck{
   position: relative;
@@ -325,17 +339,13 @@ input[type="checkbox"] {
   height: 40px;
   margin-right: 24px;
 
-  background-clip: content-box;
-  color: #4C2A4E;
-  border: white 2px solid;
-  border-radius: 10px;
-  &:checked{
-    background-color: white;
+
+.u-spacing-mt-s {
+  margin-top: var(--spacing--s);
 }
 
-&:focus{
-    outline: none !important;
-}
+.u-spacing-mb-s {
+  margin-bottom: var(--spacing--s);
 }
 
 
@@ -387,11 +397,19 @@ input[type="checkbox"] {
 .inactive{
   filter: grayscale(0.5);
   filter: brightness(0.9);
-}
-
 
 .No-Display{
   display: none;
+}
+
+
+/* **************************    Game Screen        *********************************** */
+.GameSplit{
+  display: flex;
+  flex-direction: row;
+}
+.GameInteract{
+  width: 40%;
 }
 
 

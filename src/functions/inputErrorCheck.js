@@ -10,6 +10,8 @@ export default function inputErrorCheck(type, value) {
     const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const streetAddressRegex = /^[0-9]+ [A-Za-z ]+$/;
+
+    const provinceRegex = /^[A-Za-z\s]+$/;
     const cityRegex = /^[A-Za-z\s]+$/;
     const postalCodeRegex = /^[A-Za-z][0-9][A-Za-z] *[0-9][A-Za-z][0-9]$/i;
 
@@ -22,6 +24,7 @@ export default function inputErrorCheck(type, value) {
         "phone": phoneRegex,
         "email": emailRegex,
         "streetAddress": streetAddressRegex,
+        "province": provinceRegex,
         "city": cityRegex,
         "postalCode": postalCodeRegex
     };

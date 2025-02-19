@@ -74,8 +74,8 @@ return (
                     <input name="city" type="text" id="city" placeholder="City"className='formHalf' required />
                     <div className='formErrorBar'>
                 <p className='formErrorMessage'>
-                *Address is required.<br/>
-                *Address must include a street name and number.
+                *City is required.<br/>
+                *Enter a valid city name.
                 </p>
             </div>
                 </div>
@@ -84,11 +84,56 @@ return (
                     <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" className='formHalf' required />
                     <div className='formErrorBar'>
                 <p className='formErrorMessage'>
-                *Address is required.<br/>
-                *Address must include a street name and number.
+                  *Postal code is required.<br/>
+                  *Max 7 characters. <br />
+                  *Enter a valid postal code in the correct format (e.g., A1A 1A1 for Canada).
                 </p>
             </div>
                 </div>
+
+                <div className='formElement formWide u-spacing-mb-m'>
+                    <label htmlFor="streetAddress" className='formLabel'>Street Address</ label>        
+                    <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Address" required />
+                    <div className='formErrorBar'>
+                        <p className='formErrorMessage'>
+                        *Address is required.<br/>
+                        *Address must include a street name and number.
+                        </p>
+                    </div>
+                </div>
+                <div className='formElement formWide u-spacing-mb-m'>
+                    <label htmlFor="province" className='formLabel'>Province</ label>        
+                    <input name="province" type="text" id="province" placeholder="Province" required />
+                    <div className='formErrorBar'>
+                        <p className='formErrorMessage'>
+                        *Province is required.<br/>
+                        *Enter a valid province name.
+                        </p>
+                    </div>
+                </div>
+                <fieldset className='fieldset2 u-spacing-mb-m'>
+                    <div className='formElement'>
+                        <label htmlFor="city" className='formLabel'>City</ label>        
+                        <input name="city" type="text" id="city" placeholder="City" required />
+                        <div className='formErrorBar'>
+                            <p className='formErrorMessage'>
+                            *City is required.<br/>
+                            *Enter a valid city name.
+                            </p>
+                        </div>
+                    </div>
+                    <div className='formElement'>
+                        <label htmlFor="postalCode" className='formLabel'>Postal Code</ label>        
+                        <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" required />
+                        <div className='formErrorBar'>
+                            <p className='formErrorMessage'>
+                            *Postal code is required.<br/>
+                            *Max 7 characters. <br />
+                            *Enter a valid postal code in the correct format (e.g., A1A 1A1 for Canada).
+                            </p>
+                        </div>
+                    </div>
+                </fieldset>
 
                 <div className='formButtons'>
                     <div className='backButton pageButton'>

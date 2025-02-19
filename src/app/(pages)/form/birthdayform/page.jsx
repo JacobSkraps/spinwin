@@ -8,8 +8,19 @@ import inputErrorCheck from '@/functions/inputErrorCheck';
 // const [ birthday, setBirthday] = useState('');
 
 
+
 export default function Home() {
-  const addPeopleFormRef = useRef(null);
+
+const addPeopleFormRef = useRef(null);
+
+let nextPage;
+
+function timeCheck(birthday) {
+	const dateSplit = birthday.split("-");
+	console.log(dateSplit)
+
+	const theirTimeMilli = new Date(dateSplit).getTime();
+	const currentTimeMilli = new Date().getTime();
 
   let nextPage;
 

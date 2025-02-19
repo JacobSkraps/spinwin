@@ -1,35 +1,21 @@
 "use client";
 
-import { useEffect } from 'react';
-import "../../globals.css";
+import "../../styles/form.css"
+
+
+import { useRef } from "react";
+import "../../styles/form.css"
+import ContestInfoModal from "@/app/(pages)/form/contestInfoModal";
 
 export default function FormLayout({ children }) {
-  useEffect(() => {
-    const togglePopup = () => {
-      const popup = document.getElementById("formInfoPopup");
-      const content = document.getElementById("formContent");
-      if (popup.style.display === "none") {
-        popup.style.display = "block";
-        content.style.display = "none";
-      } else {
-        popup.style.display = "none";
-        content.style.display = "block";
-      }
-    };
+	const modalRef = useRef(null)
 
-    const button = document.getElementById("formInfoPopupButton");
-    if (button) {
-      button.addEventListener("click", togglePopup);
-    } else {
-      console.error("Button with id 'formInfoPopupButton' not found");
-    }
-
-    return () => {
-      if (button) {
-        button.removeEventListener("click", togglePopup);
-      }
-    };
-  }, []);
+	function openModal (){
+		console.log("opening modal")
+		if(modalRef.current){
+			modalRef.current.style.display = "flex"
+		}
+	}
 
   return (
     <div id="formBody">
