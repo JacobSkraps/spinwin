@@ -14,17 +14,17 @@ export default function FormPage() {
         const formData = new FormData(addPeopleForm);
         
         //* Store Values in local storage
-        const addressOneValue = formData.get('streetAddress');
+        const addressOneValue = formData.get('addressOne');
         localStorage.setItem('addressOne', addressOneValue);
 
-        const addressTwoValue = formData.get('city');
+        const addressTwoValue = formData.get('addressTwo');
         localStorage.setItem('addressTwo', addressTwoValue);
 
-        const postalValue = formData.get('postalCode');
+        const postalValue = formData.get('postal');
         localStorage.setItem('postal', postalValue);
 
 
-        let guardianFormInputs = ["streetAddress", "city", "postalCode"];
+        let guardianFormInputs = ["streetAddress", "province", "city", "postalCode"];
     
         //* check all if there is anything wrong
         guardianFormInputs.forEach(input => {
@@ -59,38 +59,6 @@ return (
     <div>
         <h3 className='formHeading'>Address</h3>
             <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
-                <div className='formElement'>
-                    <label htmlFor="streetAddress" className='formLabel'>Street Name</ label>        
-                    <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Name" className='formWide' required />
-                    <div className='formErrorBar'>
-                <p className='formErrorMessage'>
-                *Address is required.<br/>
-                *Address must include a street name and number.
-                </p>
-            </div>
-                </div>
-                <div className='formElement'>
-                    <label htmlFor="city" className='formLabel'>City</ label>        
-                    <input name="city" type="text" id="city" placeholder="City"className='formHalf' required />
-                    <div className='formErrorBar'>
-                <p className='formErrorMessage'>
-                *City is required.<br/>
-                *Enter a valid city name.
-                </p>
-            </div>
-                </div>
-                <div className='formElement'>
-                    <label htmlFor="postalCode" className='formLabel'>Postal Code</ label>        
-                    <input name="postalCode" id="postalCode" type="text" placeholder="Postal Code" className='formHalf' required />
-                    <div className='formErrorBar'>
-                <p className='formErrorMessage'>
-                  *Postal code is required.<br/>
-                  *Max 7 characters. <br />
-                  *Enter a valid postal code in the correct format (e.g., A1A 1A1 for Canada).
-                </p>
-            </div>
-                </div>
-
                 <div className='formElement formWide u-spacing-mb-m'>
                     <label htmlFor="streetAddress" className='formLabel'>Street Address</ label>        
                     <input name="streetAddress" type="text" id="streetAddress" placeholder="Street Address" required />
@@ -137,9 +105,9 @@ return (
 
                 <div className='formButtons'>
                     <div className='backButton pageButton'>
-                        <Link href="./guardianForm">Back</Link>
+                        <Link href="./birthdayform">Back</Link>
                     </div>
-                    <button className='nextButtonButton' type="submit">Submit</button>
+                    <button className='nextButton pageButton' type="submit">Submit</button>
                 </div>
             </form>
         </div>

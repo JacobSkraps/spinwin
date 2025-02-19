@@ -65,10 +65,10 @@ export default function FormPage() {
     <div>
       <h2 className='formHeading'>Personal Information</h2>
       <form ref={addPeopleFormRef} className="add" onSubmit={handleFormSubmit} noValidate>
-        <fieldset className='fieldset2'>
-          <div className='formElement'>
+        <fieldset className='fieldset2 u-spacing-mb-m'>
+          <div className='formElement formHalf'>
             <label htmlFor="firstName" className='formLabel'>First Name</ label>        
-            <input name="firstName" type="text" placeholder="First Name" id="firstName" className='formHalf' required />
+            <input name="firstName" type="text" placeholder="First Name" id="firstName" className='formInput' required />
             <div className='formErrorBar'>
               <p className='formErrorMessage'>
                 *First name is required.<br/>
@@ -76,9 +76,9 @@ export default function FormPage() {
               </p>
             </div>
           </div>
-          <div className='formElement'>
+          <div className='formElement formHalf'>
             <label htmlFor="lastName" className='formLabel'>Last Name</ label>        
-            <input name="lastName" type="text" placeholder="Last Name" id="lastName" className='formHalf'  required />
+            <input name="lastName" type="text" placeholder="Last Name" id="lastName" className='formInput'  required />
             <div className='formErrorBar'>
               <p className='formErrorMessage'>
                 *Last name is required.<br/>
@@ -88,9 +88,9 @@ export default function FormPage() {
           </div>
         </fieldset>
         <fieldset className='fieldset2'>
-          <div className='formElement'>
+          <div className='formElement formHalf'>
             <label htmlFor="phone" className='formLabel'>Phone Number</ label>        
-            <input name="phone" type="phone" placeholder="Phone" id="phone" className='formHalf'  required />
+            <input name="phone" type="phone" placeholder="Phone" id="phone" className='formInput'  required />
             <div className='formErrorBar'>
               <p className='formErrorMessage'>
               *Phone number is required.<br/>
@@ -99,9 +99,9 @@ export default function FormPage() {
               </p>
             </div>
           </div>
-          <div className='formElement'>
+          <div className='formElement formHalf'>
             <label htmlFor="email" className='formLabel'>Email</ label>        
-            <input name="email" type="email" placeholder="Email" id="email" className='formHalf'  required />
+            <input name="email" type="email" placeholder="Email" id="email" className='formInput'  required />
             <div className='formErrorBar'>
               <p className='formErrorMessage'>
                 *Email address is required.<br/>
@@ -116,7 +116,7 @@ export default function FormPage() {
           <div className='backButton pageButton'>
               <Link href="./birthdayform">Back</Link>
           </div>
-          <button className='nextButtonButton' type="submit">Submit</button>
+          <button className='nextButton pageButton' type="submit">Submit</button>
         </div>
 
       </form>
