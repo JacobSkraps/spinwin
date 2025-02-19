@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { redirect } from 'next/navigation';
-import Link from 'next/link';
+
+import Link from 'next/link'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,15 +19,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Init services
-const db = getFirestore();
+// init services
+const db = getFirestore()
 
-// Collection ref
-const colRef = collection(db, 'formData');
+// collection ref
+const colRef = collection(db, 'formData')
 
 export default function FormPage() {
     const [type, setType] = useState('');
     const [birthday, setBirthday] = useState('');
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phone, setPhone] = useState('');
@@ -35,7 +36,9 @@ export default function FormPage() {
     const [addressOne, setAddressOne] = useState('');
     const [addressTwo, setAddressTwo] = useState('');
     const [postal, setPostal] = useState('');
+
     const [parentBirthday, setParentBirthday] = useState('');
+
 
 
     useEffect(() => {
@@ -115,20 +118,22 @@ export default function FormPage() {
             });
         }
     }, []);
-
     const handleFormSubmit = async (e) => {
         const addPeopleForm = document.querySelector('.add');
 
         e.preventDefault();
         
-        const formData = new FormData(e.target);
-        const consentToCommunications = formData.get('consentCommunications');
-        const consentToRules = formData.get('consentRules');
-
-        if(type === "Child") {
+        // Add to Firestore
+        // await addDoc(colRef, {
+        //     dateOfBirth: birthday,
+        // });
+        console.log(`${type}`)
+        if(type == "Child"){
+            e.preventDefault();
             await addDoc(colRef, {
                 accountType: type,
                 childDateOfBirth: birthday,
+
                 guardianFirstName: firstName,
                 guardianLastName: lastName,
                 guardianPhone: phone,
@@ -136,14 +141,18 @@ export default function FormPage() {
                 guardianAddressOne: addressOne,
                 guardianAddressTwo: addressTwo,
                 guardianPostal: postal,
+
                 guardianDateOfBirth: parentBirthday,
-                consentToCommunications: consentToCommunications,
-                consentToRules: consentToRules
+            }).then(() => {
+                addPeopleForm.reset();
             });
-        } else if(type === "Adult") {
+        }
+        if(type == "Adult"){
+            e.preventDefault();
             await addDoc(colRef, {
                 accountType: type,
                 dateOfBirth: birthday,
+
                 firstName: firstName,
                 lastName: lastName,
                 phone: phone,
@@ -151,16 +160,30 @@ export default function FormPage() {
                 addressOne: addressOne,
                 addressTwo: addressTwo,
                 postal: postal,
-                consentToCommunications: consentToCommunications,
-                consentToRules: consentToRules
+            }).then(() => {
+                addPeopleForm.reset();
             });
         }
 
-        // Clear local storage
-        localStorage.clear();
+        const formData = new FormData(addPeopleForm);
 
-        // Redirect
-        redirect(`/form/birthdayform`);
+        let consentInputs = ["consentCommunications", "consentRules"];
+
+        consentInputs.forEach(input=>{
+            let inputField = document.getElementById(input);
+            let inputValue = formData.get(input);
+            console.log(inputValue)
+            if (inputValue == null){
+                console.log("changed to red")
+                inputField.style.border = "2px solid red"
+            } else if (inputValue === "yes"){
+                console.log("changed to white")
+                inputField.style.border = " 2px solid white"
+            }
+        })
+
+        // Clear local storage
+        localStorage.removeItem('birthday');
     };
 
     return (
@@ -170,7 +193,7 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentCommunications" type="checkbox" id="consentCommunications" className='consentBox' value="yes" required />
                     <span className='checkmark'></span>
-                    <label htmlFor="consentCommunications" className='formLabel'>I consent to receiving communications regarding BuyMore Dollars products and sponsors.</ label> 
+                    <label htmlFor="consentCommunications" className='formLabel'>Consent to be communicated by us</ label> 
                     <div className='formErrorBar formErrorCheck'>
                         <p className='formErrorMessage'>
                         *Consent is required.
@@ -180,7 +203,7 @@ export default function FormPage() {
                 <div className='formCheck'>
                     <input name="consentRules" type="checkbox" id="consentRules" className='consentBox'  value="yes" required />
                     <span className='checkmark'></span>
-                    <label htmlFor="consentRules" className='formLabel'>I agree to the contest <Link href="./legalPage">rules and regulations.</Link></ label>        
+                    <label htmlFor="consentRules" className='formLabel'>Consent to be rules</ label>        
                     <div className='formErrorBar formErrorCheck'>
                         <p className='formErrorMessage'>
                         *Consent is required.
@@ -191,9 +214,11 @@ export default function FormPage() {
                     <div className='backButton pageButton'>
                         <Link href="./birthdayform">Back</Link>
                     </div>
-                    <button className='nextButtonButton' type="submit">Submit</button>
+                    <button className='pageButton nextButton' type="submit">Submit</button>
                 </div>
             </form>
         </div>
     );
 }
+
+
