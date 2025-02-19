@@ -3,13 +3,20 @@
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-    const [outcome, setOutcome] = useState('');
+    const [win, setWin] = useState('');
+    const [value, setValue] = useState('');
 
     useEffect(() => {
-        const outcome = localStorage.getItem('outcome');
-        setOutcome(outcome);
-        console.log(outcome);
-        if(outcome.win == false){
+        const win = localStorage.getItem('outcomeWin');
+        setWin(win);   
+    
+        const value = localStorage.getItem('outcomeValue');
+        setValue(value);
+
+        console.log(win);
+        console.log(value);
+
+        if(win == false){
             let myHeader = document.querySelector("#outcomeHeader");
             let mySubHeader = document.querySelector("#outcomeSubHeader");
             let myPara = document.querySelector("#outcomePara");
@@ -31,7 +38,7 @@ export default function Home() {
             let headerText = "CONGRATULATIONS";
             myHeader.innerText = headerText;
             
-            let subHeaderText = `${outcome.value} BuyMore Dollars`;
+            let subHeaderText = `${value} BuyMore Dollars`;
             mySubHeader.innerText = subHeaderText;
             
             let paraText = "Check your email for prize details. Answer the skill testing question below. Prizes must be claimed in 7 days.";

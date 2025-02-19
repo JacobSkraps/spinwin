@@ -13,34 +13,38 @@ export default function Home() {
         let randomOutcome = Math.random();
         const outcomes = [
             { win: false,
-            type: "Coupon" },
+            type: "Coupon",
+            value: 0 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "20" },
+            value: 20 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "100" },
+            value: 100 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "20" },
+            value: 20 },
             { win: false,
-            type: "Coupon" },
+            type: "Coupon",
+            value: 0 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "750" },
+            value: 750 },
             { win: false,
-            type: "Coupon" },
+            type: "Coupon",
+            value: 0 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "20" },
+            value: 20 },
             { win: false,
-            type: "Coupon" },
+            type: "Coupon",
+            value: 0 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "100" },
+            value: 100 },
             { win: true,
             type: "BuyMoreDollars",
-            value: "10000" }
+            value: 10000 }
         ];
         wheel.removeEventListener('click', spinWheel);
         gsap.set(spinningPart, {
@@ -87,7 +91,11 @@ export default function Home() {
                     outcome = outcomes[10]
                 }
                 console.log(outcome);
-                localStorage.setItem('outcome', outcome);
+                console.log(outcome.win);
+                console.log(outcome.value);
+                localStorage.setItem('outcomeWin', outcome.win);
+                localStorage.setItem('outcomeValue', outcome.value);
+
                 redirect(`/outcome`)
             }
         });
