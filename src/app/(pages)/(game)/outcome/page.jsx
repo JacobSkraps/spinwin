@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import grandPrize from "/public/tenkbmd.png";
 import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
-import fourthPrize from "@/../../public/twentybmd.png";
+import fourthPrize from "/public/twentybmd.png";
 
 
 
 export default function Home() {
     const [win, setWin] = useState('');
     const [value, setValue] = useState('');
+    const [source, setSource] = useState("");
 
     useEffect(() => {
         const win = localStorage.getItem('outcomeWin');
@@ -51,14 +52,21 @@ export default function Home() {
             let paraText = "Check your email for prize details. Answer the skill testing question below. Prizes must be claimed in 7 days.";
             myPara.innerText = paraText;
             if (value == 20){
-                prizeSpace.src = fourthPrize;
+                setSource(fourthPrize);
+                // prizeSpace.src = {fourthPrize};
                 console.log("Value 20!")
             } else if (value == 100){
-                prizeSpace.src = thirdPrize;
+                setSource(thirdPrize);
+
+                // prizeSpace.src = {thirdPrize};
             } else if (value == 750){
-                prizeSpace.src = secondPrize;
+                setSource(secondPrize);
+
+                // prizeSpace.src = {secondPrize};
             } else if (value == 10000){
-                prizeSpace.src = grandPrize;
+                setSource(grandPrize);
+
+                // prizeSpace.src = {grandPrize};
             }
 
         }
@@ -68,7 +76,7 @@ export default function Home() {
             <h1 className="contestInfo" id="outcomeHeader">Loading</h1>
             <div className="GameSplit">
                 <div className="GameInteract">
-                    <Image src={grandPrize} id='prizeSpace' alt="Your prize!" />
+                    <Image src={source} id='prizeSpace' alt="Your prize!" />
                     {/* <img src={ fourthPrize } alt="Your prize!" id='prizeSpace' /> */}
                 </div>
                 <div className="OutcomeDisplay">

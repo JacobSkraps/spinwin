@@ -16,64 +16,55 @@ const addPeopleFormRef = useRef(null);
 let nextPage;
 
 function timeCheck(birthday) {
-	const dateSplit = birthday.split("-");
-	console.log(dateSplit)
+  const dateSplit = birthday.split("-");
+  console.log(dateSplit)
 
-	const theirTimeMilli = new Date(dateSplit).getTime();
-	const currentTimeMilli = new Date().getTime();
-
-  let nextPage;
-
-  function timeCheck(birthday) {
-    const dateSplit = birthday.split("-");
-    console.log(dateSplit)
-
-    const theirTimeMilli = new Date(dateSplit).getTime();
-    const currentTimeMilli = new Date().getTime();
+  const theirTimeMilli = new Date(dateSplit).getTime();
+  const currentTimeMilli = new Date().getTime();
 
 
-    let age = Math.floor((currentTimeMilli - theirTimeMilli)/(31556926100))
+  let age = Math.floor((currentTimeMilli - theirTimeMilli)/(31556926100))
 
-    console.log(`${currentTimeMilli} - ${theirTimeMilli} = ${age}`);
+  console.log(`${currentTimeMilli} - ${theirTimeMilli} = ${age}`);
 
 
-    // to get the date of their birthday
-    // const theirBirthdate = new Date(ageEpoch);
-    console.log(birthday);
-    let minimumAge = 15;
-    if (minimumAge < age) {
-      nextPage = "mainForm"
-    } 
-    else{ 
-      nextPage = "guardianForm" 
-    }
-
-    //* i made a checker to see if it'll give true or false here. */
-    const birthdayCheck = inputErrorCheck("birthday", birthday);
-
-    if(birthdayCheck){
-      redirect(`/form/${nextPage}`)
-    }
-    if(!birthdayCheck){
-      let input = document.getElementById("birthday");
-      // console.log(input)
-      input.style.border = "2px solid red"
-    }
-    // LinkForward.css.
+  // to get the date of their birthday
+  // const theirBirthdate = new Date(ageEpoch);
+  console.log(birthday);
+  let minimumAge = 15;
+  if (minimumAge < age) {
+    nextPage = "mainForm"
+  } 
+  else{ 
+    nextPage = "guardianForm" 
   }
-  // const router = useRouter();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const addPeopleForm = addPeopleFormRef.current;
-    const formData = new FormData(addPeopleForm);
-    const birthdayValue = formData.get('birthday');
 
-    //* Store birthday in local storage
-    localStorage.setItem('birthday', birthdayValue);
+  //* i made a checker to see if it'll give true or false here. */
+  const birthdayCheck = inputErrorCheck("birthday", birthday);
 
-    // console.log(`Birthday Value ${birthdayValue}`);
-    timeCheck(birthdayValue);
-  };  
+  if(birthdayCheck){
+    redirect(`/form/${nextPage}`)
+  }
+  if(!birthdayCheck){
+    let input = document.getElementById("birthday");
+    // console.log(input)
+    input.style.border = "2px solid red"
+  }
+  // LinkForward.css.
+}
+// const router = useRouter();
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const addPeopleForm = addPeopleFormRef.current;
+  const formData = new FormData(addPeopleForm);
+  const birthdayValue = formData.get('birthday');
+
+  //* Store birthday in local storage
+  localStorage.setItem('birthday', birthdayValue);
+
+  // console.log(`Birthday Value ${birthdayValue}`);
+  timeCheck(birthdayValue);
+};  
 
   return (
     <div>

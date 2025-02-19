@@ -103,7 +103,7 @@ body{
   font-size: 1rem;
   color: white;
   line-height: 2rem;
-  background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(18,5,37,1) 100%);
+  /* background: radial-gradient(circle, rgba(158,34,144,1) 0%, rgba(65,15,87,1) 62%, rgba(18,5,37,1) 100%); */
 }
 
 input{
@@ -170,7 +170,7 @@ input{
   line-height: 1rem;
 }
 
-/* #formBody{
+#formBody{
   width: 1200px;
   height: 652px;
   margin: 80px auto;
@@ -194,7 +194,7 @@ input{
 
 #formSidingContainer{
   display: flex;
-  flex-direction: column;
+  flex-direction: column;}
   /* justify-content: space-between; */
 
 #formContent{
