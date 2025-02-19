@@ -30,7 +30,7 @@ export default function Home() {
                 localStorage.setItem('outcomeWin', storedOutcome.win);
                 localStorage.setItem('outcomeValue', storedOutcome.value);
 
-                // redirect(`/outcome`)
+                redirect(`/outcome`)
             }
         });
     }

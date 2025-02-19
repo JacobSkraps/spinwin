@@ -416,7 +416,7 @@ input[type="checkbox"] {
 
 /****************************************              GAME              ****************************************/
 #GameGame{
-  width: 100%;
+  width: 60%;
 }
 
 .GameSplit{
@@ -456,11 +456,47 @@ input[type="checkbox"] {
 #GoodLuck{
   font-size: 2.5rem;
 }
-
-.wheelComponent{
+#wheel{
+  height: 100%;
+}
+#theWheel{
   width: 100%;
   height: 100%;
   filter: drop-shadow(0 0 40px #FF95D4);
+}
+
+#outcomeHeader{
+  text-align: center;
+  font-size: 6rem;
+}
+#OutcomeDisplay{
+  width: 60%;
+}
+#outcomeSubHeader{
+  width: 100%;
+  font-family: 'poppins';
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 900;
+  /* Golden Gradient */
+  background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+.outcomePara{
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 12px;
+  text-align: center;
+  /* max-width: 40%; */
+}
+#prizeSpace{
+  width: 100%;
+  height: 50%;
 }
 
 /****************************************              Mobile              ****************************************/
