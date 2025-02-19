@@ -16,7 +16,7 @@ export default function Home() {
         console.log(win);
         console.log(value);
 
-        if(win == false){
+        if(win === false){
             let myHeader = document.querySelector("#outcomeHeader");
             let mySubHeader = document.querySelector("#outcomeSubHeader");
             let myPara = document.querySelector("#outcomePara");
@@ -46,13 +46,15 @@ export default function Home() {
         }
     });
     return(
-        <div className="GameSplit">
+        <div>
             <h1 className="contestInfo" id="outcomeHeader">Loading</h1>
-            <div className="GameInteract"></div>
-            <div className="OutcomeDisplay">
-                <h2 id='outcomeSubHeader'>Loading...</h2>
-                <p id='outcomePara'>Loading...</p>
+            <div className="GameSplit">
+                <div className="GameInteract"></div>
+                <div className="OutcomeDisplay">
+                    <h2 id='outcomeSubHeader'>Loading...</h2>
+                    <p id='outcomePara'>Loading...</p>
 
+                </div>
             </div>
         </div>
     );
