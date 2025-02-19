@@ -65,6 +65,9 @@ export default function Home() {
       <Link href="./form/birthdayform">
         <h3 className='formSubHeading'>Take me to the Form!</h3>
       </Link>
+      <Link href="./game">
+        <h3 className='formSubHeading'>Take me to the Game!</h3>
+      </Link>
     </div>
   );
 }

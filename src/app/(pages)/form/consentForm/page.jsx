@@ -214,7 +214,7 @@ export default function FormPage() {
                     <div className='backButton pageButton'>
                         <Link href="./birthdayform">Back</Link>
                     </div>
-                    <button className='nextButtonButton' type="submit">Submit</button>
+                    <button className='pageButton nextButton' type="submit">Submit</button>
                 </div>
             </form>
         </div>
