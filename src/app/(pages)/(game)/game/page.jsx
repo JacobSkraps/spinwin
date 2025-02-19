@@ -87,7 +87,7 @@ export default function Home() {
                     outcome = outcomes[10]
                 }
                 console.log(outcome);
-                localStorage.setItem('result', outcome);
+                localStorage.setItem('outcome', outcome);
                 redirect(`/outcome`)
             }
         });
