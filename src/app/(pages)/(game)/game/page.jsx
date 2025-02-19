@@ -52,7 +52,7 @@ export default function Home() {
             ease: "power4.out",
             onComplete: () => {
                 // let randomOutcome = Math.random();
-                let outcome = null
+                let outcome = {}
                 if (randomOutcome < 0.099){
                     outcome = outcomes[0]
                 }
