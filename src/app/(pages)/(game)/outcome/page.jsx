@@ -1,10 +1,12 @@
 "use client";
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
+
 import grandPrize from "/public/tenkbmd.png";
 import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
 import fourthPrize from "/public/twentybmd.png";
+import coupon from "/public/coupon.png";
 
 
 
@@ -26,7 +28,8 @@ export default function Home() {
         if(win == "false"){
             let myHeader = document.querySelector("#outcomeHeader");
             let mySubHeader = document.querySelector("#outcomeSubHeader");
-            let myPara = document.querySelector("#outcomePara");
+            let myParaOne = document.querySelector("#para1");
+            let myParaTwo = document.querySelector("#para2");
 
             let headerText = "Aw, You Were So Close";
             myHeader.innerText = headerText;
@@ -34,14 +37,18 @@ export default function Home() {
             let subHeaderText = "Better Luck Next Time";
             mySubHeader.innerText = subHeaderText;
             
-            let paraText = "Thanks for playing! Unfortunately you didn’t win this time. You can try again in 36 hours. You have won a coupon for $2.00 off any purchase over $50 from Pierogi Hat Co or a free Gurkin shake with any order of fries.";
-            myPara.innerText = paraText;
+            let firstPara = "Thanks for playing! Unfortunately you didn’t win this time. You can try again in 36 hours.";
+            myParaOne.innerText = firstPara;
+            let secondPara = "You have won a coupon for $2.00 off any purchase over $50 from Pierogi Hat Co or a free Gurkin shake with any order of fries.";
+            myParaTwo.innerText = secondPara;
+            setSource(coupon);
+
         }
         else{
             let myHeader = document.querySelector("#outcomeHeader");
             let mySubHeader = document.querySelector("#outcomeSubHeader");
-            let myPara = document.querySelector("#outcomePara");
-            let prizeSpace = document.querySelector("#prizeSpace");
+            let myParaOne = document.querySelector("#para1");
+            let myParaTwo = document.querySelector("#para2");
 
             let headerText = "CONGRATULATIONS";
             myHeader.innerText = headerText;
@@ -49,8 +56,11 @@ export default function Home() {
             let subHeaderText = `${value} BuyMore Dollars`;
             mySubHeader.innerText = subHeaderText;
             
-            let paraText = "Check your email for prize details. Answer the skill testing question below. Prizes must be claimed in 7 days.";
-            myPara.innerText = paraText;
+            let firstPara = "Check your email for prize details. Answer the skill testing question below. Prizes must be claimed in 7 days.";
+            myParaOne.innerText = firstPara;
+            let secondPara = "2 + 2 = 4";
+            myParaTwo.innerText = secondPara;
+
             if (value == 20){
                 setSource(fourthPrize);
                 // prizeSpace.src = {fourthPrize};
@@ -73,7 +83,7 @@ export default function Home() {
     });
     return(
         <div>
-            <h1 className="contestInfo" id="outcomeHeader">Loading</h1>
+            <h1 className="contest-info-wrapper__fill" id="outcomeHeader">Loading</h1>
             <div className="GameSplit">
                 <div className="GameInteract">
                     <Image src={source} id='prizeSpace' alt="Your prize!" />
@@ -81,7 +91,9 @@ export default function Home() {
                 </div>
                 <div className="OutcomeDisplay">
                     <h2 id='outcomeSubHeader'>Loading...</h2>
-                    <p id='outcomePara'>Loading...</p>
+                    <p className='outcomePara' id='para1'>Loading...</p>
+                    <p className='outcomePara' id='para2'>Loading...</p>
+
 
                 </div>
             </div>
