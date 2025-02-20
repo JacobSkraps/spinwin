@@ -67,7 +67,7 @@
     /* height: 100%; */
     filter: drop-shadow(0 0 40px #FF95D4);
     width: 150%;
-    margin-left: -128px;
+    margin-left: -25%;
   
   }
   #theWheel{
@@ -113,3 +113,63 @@
     width: 100%;
     height: 50%;
   }
+
+  .formButtons{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.pageButton{
+    width: 106px;
+    height: 48px;
+    border: 4px solid #0E1F25;
+    border-radius: 10px;
+    display: flex;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 30px;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    cursor: pointer;
+
+}
+.nextButton{
+    background: linear-gradient(180deg, #0094D7 0%, #00BDDD 15%, #FFFFFF 50%, #00BDDD 85%, #0094D7 100%);
+    box-shadow: 0px 0px 15px 2px #91E4FF;
+}
+
+.backButton{
+    background: linear-gradient(180deg, #695507 0%, #F8E74C 15.49%, #FFF3EF 50.49%, #F8E74C 84.99%, #695507 100%);
+    box-shadow: 0px 0px 15px 2px #F8D757;
+    margin-right: 16px;
+}
+
+@media only screen and (max-width: 480px) {
+    #outcomeDiv{
+        width: 90%;
+        margin: auto;
+    }
+    .GameSplit{
+        width: 90%;
+        height: 100%;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+    .GameInteract{
+        width: 100%;
+    }
+    #GameHeader{
+        padding: 0;
+        font-size: 4rem;
+    }
+    #GameGame{
+        width: 100%;
+    }
+    #outcomeHeader{
+        font-size: 3.5rem;
+    }
+}
