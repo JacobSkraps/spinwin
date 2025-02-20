@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
 
 import Link from 'next/link'
-import inputErrorCheck from '@/functions/inputErrorCheck';
+import regexCheck from '@/functions/regexCheck';
 
 export default function FormPage2() {
     const addPeopleFormRef = useRef(null);
@@ -17,14 +17,17 @@ export default function FormPage2() {
     localStorage.setItem('accountType', "Adult");
 
 
-    const addressOneValue = formData.get('addressOne');
-    localStorage.setItem('addressOne', addressOneValue);
+    const streetAddressValue = formData.get('streetAddress');
+    localStorage.setItem('streetAddress', streetAddressValue);
 
-    const addressTwoValue = formData.get('addressTwo');
-    localStorage.setItem('addressTwo', addressTwoValue);
+    const provinceValue = formData.get('province');
+    localStorage.setItem('province', provinceValue);
 
-    const postalValue = formData.get('postal');
-    localStorage.setItem('postal', postalValue);
+    const cityValue = formData.get('city');
+    localStorage.setItem('city', cityValue);
+
+    const postalCodeValue = formData.get('postalCode');
+    localStorage.setItem('postalCode', postalCodeValue);
 
     let mainFormInputs = ["streetAddress", "city", "postalCode"];
 
@@ -33,7 +36,7 @@ export default function FormPage2() {
         let inputField = document.getElementById(input);
 
         let inputValue = formData.get(input);
-        let inputResult = inputErrorCheck(input, inputValue);
+        let inputResult = regexCheck(input, inputValue);
         if(!inputResult){
         inputField.style.border = "2px solid red"
         } else{
@@ -46,12 +49,12 @@ export default function FormPage2() {
     let inputsValid = mainFormInputs.every(input=>{
         console.log(input)
         let inputValue = formData.get(input);
-        return inputErrorCheck(input, inputValue);
+        return regexCheck(input, inputValue);
     });
 
     if (inputsValid){
         console.log("ALL TRUE YIPPEEE")
-        redirect(`/form/consentForm`)
+        redirect(`/form/legalpage`)
     } else{
         console.log("SOMETHIN FAILED WAHH")
     }

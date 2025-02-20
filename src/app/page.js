@@ -7,6 +7,8 @@ import {
   addDoc, deleteDoc, doc
 } from 'firebase/firestore';
 import Link from 'next/link'
+import idCheck from '@/functions/idCheck';
+import { redirect } from 'next/navigation';
 
 
 // Your web app's Firebase configuration
@@ -29,6 +31,11 @@ const db = getFirestore()
 const colRef = collection(db, 'formData')
 
 export default function Home() {
+
+  /****! MADE THIS FUNCTION FOR THE PLAY BUTTON ONCE IT COMES!! */
+  idCheck(db);
+
+
   useEffect(() => {
     const addPeopleForm = document.querySelector('.add');
     if (addPeopleForm) {
@@ -58,6 +65,12 @@ export default function Home() {
       });
     }
   }, []); // Empty dependency array ensures this runs only once
+
+  useEffect(()=>{
+    getDocs(colRef)
+
+  })
+
 
   return (
     <div>

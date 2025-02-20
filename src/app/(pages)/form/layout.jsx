@@ -3,9 +3,16 @@
 import { useRef } from "react";
 import "../../styles/form.css"
 import ContestInfoModal from "@/app/(pages)/form/contestInfoModal";
+import { usePathname } from "next/navigation";
+import BMDLogo from "/public/bmd_white_logo.svg";
 
 export default function FormLayout({ children }) {
 	const modalRef = useRef(null)
+	const path = usePathname();
+
+	if (path === '/form/legalpage'){
+		return <>{children}</>
+	}
 
 	function openModal (){
 		console.log("opening modal")
@@ -17,8 +24,9 @@ export default function FormLayout({ children }) {
 	return (
 		<main id="formPageMain">
 			<section id="formPageSection">
+				<BMDLogo className="logoForm"/>
 				<ContestInfoModal ref={modalRef}/>
-				<section id="form-contest-info">
+				<section className="form-contest-info">
 					<div className="contest-info-header">
 						<div className="contest-info-wrapper">
 							<h1 className="contest-info-wrapper__stroke" aria-hidden="true">Contest Info</h1>

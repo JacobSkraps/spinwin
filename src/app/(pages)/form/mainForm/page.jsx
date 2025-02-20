@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
 
 import Link from 'next/link'
-import inputErrorCheck from '@/functions/inputErrorCheck';
+import regexCheck from '@/functions/regexCheck';
 
 export default function FormPage() {
   const addPeopleFormRef = useRef(null);
@@ -36,7 +36,7 @@ export default function FormPage() {
       let inputField = document.getElementById(input);
 
       let inputValue = formData.get(input);
-      let inputResult = inputErrorCheck(input, inputValue);
+      let inputResult = regexCheck(input, inputValue);
       if(!inputResult){
         inputField.style.border = "2px solid red"
       } else{
@@ -48,7 +48,7 @@ export default function FormPage() {
     //* check to see if they are all valid
     let inputsValid = mainFormInputs.every(input=>{
       let inputValue = formData.get(input);
-      return inputErrorCheck(input, inputValue);
+      return regexCheck(input, inputValue);
     });
 
     if (inputsValid){
