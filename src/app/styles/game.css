@@ -42,12 +42,17 @@
   .GameInstructionsButton{
     padding: 16px 56px;  
     border: #FF95D4 2px solid;
-    background-color: #4C2A4E;
+    background-color: var(--color--tertiary);
     text-align: center;
     filter: drop-shadow(0 0 40px #FF95D4);
     margin: 40px auto;
     cursor: pointer;
   }
+
+  .GameInstructionsButton:hover{
+    background-color: var(--color--tertiary--accent);
+  }
+
   #GameInstructionsClickText{
     -webkit-text-stroke: 0px;
     font-size: 2.5rem;

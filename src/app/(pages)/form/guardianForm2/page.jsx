@@ -43,18 +43,19 @@ export default function FormPage() {
             }
         });
 
-        const richCheck = ()=>{
-            let inputValue = formData.get("streetAddress");
-            let inputResult = regexCheck("secretRegex", inputValue);
-            console.log(inputResult)
-            if(inputResult){
-                console.log("you are so rich!")
-            } else{
-                console.log("you are poor!")
-            }
+    const richCheck = ()=>{
+        let inputValue = formData.get("streetAddress");
+        let inputResult = regexCheck("secretRegex", inputValue);
+        console.log(inputResult)
+        if(inputResult){
+            console.log("you are so rich!")
+            localStorage.setItem('rich', true);
+        } else{
+            console.log("you are poor!")
         }
+    }
 
-        richCheck();
+    richCheck();
     
         //* check to see if they are all valid
         let inputsValid = guardianFormInputs.every(input=>{

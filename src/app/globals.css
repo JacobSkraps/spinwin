@@ -8,6 +8,7 @@
   --foreground: #171717;
   --color--secondary: #FF95D4;
   --color--tertiary: #4C2A4E;
+  --color--tertiary--accent: #6F3D72;
   --font-size--p: clamp(0.875rem, 0.776rem + 0.526vw, 1rem);
   --font-size--form-header: clamp(2rem, 1.868rem + 0.702vw, 2.5rem);
   --font-size--form-subheader: clamp(1.25rem, 1.184rem + 0.351vw, 1.5rem);
