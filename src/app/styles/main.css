@@ -1,11 +1,15 @@
 #mainMain{
-    width: 1200px;
-    margin: 60px auto;
+    width: 100%;
+    height: 100vh;
+    padding: 60px;
+    overflow-y:hidden;
 }
 #mainSplit{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: auto;
+    height: 65%;
 }
 #mainInfo{
     width: 40%;
@@ -13,19 +17,19 @@
 }
 #mainHeader{
     text-align: center;
-    font-size: 6rem;
+    font-size: clamp(4rem, 3.231rem + 3.077vw, 6rem);
     font-weight: 900;
     background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px #A12C0B;
     background-clip: text;
-    line-height: 5.625rem;
+    line-height: 1;
   }
   #mainSubHeading{
     font-family: 'poppins';
     font-weight: 500;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.308rem + 0.769vw, 2rem);
     color: white;
     margin: 12px auto;
     text-align: center;
@@ -44,23 +48,43 @@
     width: 132px;
 }
 #mainWheel{
-    width: 100%;
+    width: 50%;
     height: 100%;
     filter: drop-shadow(0 0 40px #FF95D4);
 }
 
-
-.sponsor{
-    width: 20%;
-    height: auto;
+#wheelSVG{
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    object-position: center;
 }
+
+
+
 #mainSponsors{
     width: 100%;
+    height: 35%;
+    padding: 32px 0;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+}
+
+.mainSponsors__image-wrapper{
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.sponsor{
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 480px) {

@@ -69,12 +69,19 @@
     font-weight: 700;
   }
   #wheel{
-    /* height: 100%; */
+    height: 100%;
     filter: drop-shadow(0 0 40px #FF95D4);
-    width: 150%;
-    margin-left: -25%;
-  
+    width: 100%;
+    cursor: pointer;
+
   }
+
+  #wheel > svg{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
   #theWheel{
     width: 100%;
     height: 100%;
@@ -194,7 +201,7 @@
 #popup-header{
     text-align: center;
     font-size: 3rem;
-    font-family:  "Gabarito Black";
+    font-family: var(--font-gabarito);
     background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
