@@ -11,10 +11,10 @@ import idCheck from '@/functions/idCheck';
 import { redirect } from 'next/navigation';
 import WheelComponent from "@/app/components/wheel.jsx";
 
-import Gurkin from "/public/Gurkin.png";
-import OPDYPS from "/public/OPDYPS.png";
-import PerogiHatCo from "/public/perogiHatCo.png";
-import SlormWorm from "/public/slormWorm.png";
+// import Gurkin from "/Gurkin.png";
+// import OPDYPS from "/OPDYPS.png";
+// import PerogiHatCo from "/perogiHatCo.png";
+// import SlormWorm from "/slormWorm.png";
 
 import Image from 'next/image'
 
@@ -121,11 +121,16 @@ export default function Home() {
         </div>
       </div>
       <div id='mainSponsors'>
-        <Image src={SlormWorm} className="sponsor" alt="Your prize!" />
-        <Image src={PerogiHatCo} className="sponsor" alt="Your prize!" />
-        <Image src={OPDYPS} className="sponsor" alt="Your prize!" />
-        <Image src={Gurkin} className="sponsor" alt="Your prize!" />
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/slormWorm.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/perogiHatCo.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/OPDYPS.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/Gurkin.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
       </div>
     </div>
   );
 }
+
+// import Gurkin from "/Gurkin.png";
+// import OPDYPS from "/OPDYPS.png";
+// import PerogiHatCo from "/perogiHatCo.png";
+// import SlormWorm from "/slormWorm.png";
