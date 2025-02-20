@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
 import Link from 'next/link';
-import inputErrorCheck from '@/functions/inputErrorCheck';
+import regexCheck from '@/functions/regexCheck';
 
 // const [ birthday, setBirthday] = useState('');
 
@@ -38,7 +38,7 @@ function timeCheck(birthday) {
 	}
 
 	//* i made a checker to see if it'll give true or false here. */
-	const birthdayCheck = inputErrorCheck("birthday", birthday);
+	const birthdayCheck = regexCheck("birthday", birthday);
 
 	if(birthdayCheck){
 	redirect(`/form/${nextPage}`)

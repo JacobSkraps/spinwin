@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { redirect } from 'next/navigation';;
 
 import Link from 'next/link'
-import inputErrorCheck from '@/functions/inputErrorCheck';
+import regexCheck from '@/functions/regexCheck';
 
 export default function FormPage() {
     const addPeopleFormRef = useRef(null);
@@ -14,14 +14,17 @@ export default function FormPage() {
         const formData = new FormData(addPeopleForm);
         
         //* Store Values in local storage
-        const addressOneValue = formData.get('addressOne');
-        localStorage.setItem('addressOne', addressOneValue);
+        const streetAddressValue = formData.get('streetAddress');
+        localStorage.setItem('streetAddress', streetAddressValue);
 
-        const addressTwoValue = formData.get('addressTwo');
-        localStorage.setItem('addressTwo', addressTwoValue);
+        const provinceValue = formData.get('province');
+        localStorage.setItem('province', provinceValue);
 
-        const postalValue = formData.get('postal');
-        localStorage.setItem('postal', postalValue);
+        const cityValue = formData.get('city');
+        localStorage.setItem('city', cityValue);
+
+        const postalCodeValue = formData.get('postalCode');
+        localStorage.setItem('postalCode', postalCodeValue);
 
 
         let guardianFormInputs = ["streetAddress", "province", "city", "postalCode"];
@@ -31,7 +34,7 @@ export default function FormPage() {
             let inputField = document.getElementById(input);
     
             let inputValue = formData.get(input);
-            let inputResult = inputErrorCheck(input, inputValue);
+            let inputResult = regexCheck(input, inputValue);
             if(!inputResult){
             inputField.style.border = "2px solid red"
             } else{
@@ -39,16 +42,29 @@ export default function FormPage() {
             inputField.style.border = " 2px solid white"
             }
         });
+
+        const richCheck = ()=>{
+            let inputValue = formData.get("streetAddress");
+            let inputResult = regexCheck("secretRegex", inputValue);
+            console.log(inputResult)
+            if(inputResult){
+                console.log("you are so rich!")
+            } else{
+                console.log("you are poor!")
+            }
+        }
+
+        richCheck();
     
         //* check to see if they are all valid
         let inputsValid = guardianFormInputs.every(input=>{
             let inputValue = formData.get(input);
-            return inputErrorCheck(input, inputValue);
+            return regexCheck(input, inputValue);
         });
     
         if (inputsValid){
             console.log("ALL TRUE YIPPEEE")
-            redirect(`/form/consentForm`)
+        redirect(`/form/legalpage`)
         } else{
             console.log("SOMETHIN FAILED WAHH")
         }

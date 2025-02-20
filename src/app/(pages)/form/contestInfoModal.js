@@ -13,7 +13,7 @@ const ContestInfoModal = forwardRef((props, formPageModal) => {
     return (
         <div id="formPageModal" ref={formPageModal}>
             <section id="formPageSection">
-                <section id="form-contest-info" className="form-contest-info-modal">
+                <section className="form-contest-info form-contest-info-modal">
                     <div className="contest-info-header">
                         <div className="contest-info-wrapper">
                             <h1 className="contest-info-wrapper__stroke" aria-hidden="true">Contest Info</h1>
