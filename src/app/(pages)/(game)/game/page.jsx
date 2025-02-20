@@ -1,6 +1,7 @@
 "use client";
 import WheelComponent from "@/app/components/wheel.jsx";
 import { initializeApp } from 'firebase/app';
+import Popup from "@/app/components/Popup";
 
 import {
     getFirestore, collection, onSnapshot, addDoc,
@@ -37,6 +38,7 @@ export default function Home() {
     // const [value, setValue] = useState(0);
     // const [rotate, setRotate] = useState(0);
     let storedOutcome = {}
+    const [showPopup, setShowPopup] = useState(false);
 
     let docTime = document.data().timeOut
     console.log(docTime)
@@ -182,8 +184,8 @@ export default function Home() {
         <div className="GameSplit">
             <div className="GameInteract">
                 <h1 className="contestInfo" id="GameHeader">Let's Play</h1>
-                <div className="GameIntructionsButton">
-                    <h2 className="contestInfo" id="GameIntructionsClickText">Intructions</h2>
+                <div className="GameInstructionsButton" onClick={() => setShowPopup(true)}>
+                    <h2 className="contestInfo" id="GameInstructionsClickText">Instructions</h2>
                 </div>
                 <h2 className="formHeading" id="GoodLuck">Good Luck!</h2>
             </div>
@@ -193,6 +195,7 @@ export default function Home() {
                     <WheelComponent className="wheelComponent" id="theWheel" />
                 </div>
             </div>
+            <Popup show={showPopup} onClose={() => setShowPopup(false)} />
         </div>
     );
 }
