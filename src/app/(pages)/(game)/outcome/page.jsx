@@ -82,7 +82,7 @@ export default function Home() {
         }
     });
     return(
-        <div>
+        <div id='outcomeDiv'>
             <h1 className="contest-info-wrapper__fill" id="outcomeHeader">Loading</h1>
             <div className="GameSplit">
                 <div className="GameInteract">

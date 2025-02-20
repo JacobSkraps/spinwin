@@ -67,7 +67,7 @@
     /* height: 100%; */
     filter: drop-shadow(0 0 40px #FF95D4);
     width: 150%;
-    margin-left: -128px;
+    margin-left: -25%;
   
   }
   #theWheel{
@@ -149,8 +149,12 @@
 }
 
 @media only screen and (max-width: 480px) {
+    #outcomeDiv{
+        width: 90%;
+        margin: auto;
+    }
     .GameSplit{
-        width: 100%;
+        width: 90%;
         height: 100%;
         flex-direction: column;
         margin: 40px auto;
@@ -160,6 +164,7 @@
     }
     #GameHeader{
         padding: 0;
+        font-size: 4rem;
     }
     #GameGame{
         width: 100%;
