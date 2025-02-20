@@ -205,7 +205,7 @@ export default function Game() {
         }
 
         // const regexResult = regexCheck(docStreet, )
-        if (rich != null){
+        if (rich == true){
             storedOutcome = outcomes[10]
         }
         console.log(storedOutcome);
