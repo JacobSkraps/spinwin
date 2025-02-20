@@ -106,7 +106,8 @@ export default function Home() {
     <div id='mainMain'>
       <div id='mainSplit'>
         <div id='mainInfo'>
-          <h1 id='mainHeader'>SPIN TO WIN</h1>
+          <h1 id='mainHeader'>
+            SPIN TO WIN</h1>
           <h2 id='mainSubHeading'>Spin to Win Contest <br />
           Win Bonus Dollars!</h2>
           <div className="mainButtonWrapper">
@@ -120,12 +121,28 @@ export default function Home() {
           <WheelComponent className="wheelComponent" id="theWheel" />
         </div>
       </div>
-      <div id='mainSponsors'>
-      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/slormWorm.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
-      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/perogiHatCo.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
-      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/OPDYPS.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
-      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/Gurkin.png`} className="sponsor" alt="Your prize!" width="300" height="300" />
-      </div>
+      <section id='mainSponsors'>
+        <div className="mainSponsors__image-wrapper">
+        {/* <img src={`/slormWorm.png`} className="sponsor" alt="Your prize!" /> */}
+
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/slormWorm.png`} className="sponsor" alt="Your prize!" />
+        </div>
+        <div className="mainSponsors__image-wrapper">
+        {/* <img src={`/perogiHatCo.png`} className="sponsor" alt="Your prize!" /> */}
+
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/perogiHatCo.png`} className="sponsor" alt="Your prize!" />
+        </div>
+        <div className="mainSponsors__image-wrapper">
+        {/* <img src={`/OPDYPS.png`} className="sponsor" alt="Your prize!" /> */}
+
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/OPDYPS.png`} className="sponsor" alt="Your prize!" />
+        </div>
+        <div className="mainSponsors__image-wrapper">
+        {/* <img src={`/Gurkin.png`} className="sponsor" alt="Your prize!" /> */}
+
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/Gurkin.png`} className="sponsor" alt="Your prize!" />
+        </div>
+      </section>
     </div>
   );
 }

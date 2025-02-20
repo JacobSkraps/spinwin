@@ -39,7 +39,7 @@ export default function FormLayout({ children }) {
 							1. Fill out the form with your details.<br/>
 							2. Spin the wheel and see if you're a winner!<br/>
 							3. Winners will be notified by email and must correctly answer a skill-testing question to claim their prize.<br/>
-						</p><br/>
+						</p><br/><br />
 						<p className="form-contest-info__p">
 						Winners will be selected by random draw. BuyMore Dollars Inc. reserves the right to remove any entries at their discretion.* By entering, you agree to the contest rules and regulations and consent to receive communications from BuyMore Dollars and our sponsors.
 						</p>

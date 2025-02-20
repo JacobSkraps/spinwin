@@ -1,18 +1,21 @@
 "use client";
+
 import WheelComponent from "@/app/components/wheel.jsx";
 import { initializeApp } from 'firebase/app';
 import Popup from "@/app/components/Popup";
 
 import {
     getFirestore, collection, onSnapshot, addDoc,
-    getDocs, doc, updateDoc, query, getDoc
+    getDocs, doc, updateDoc, query, getDoc,
+    DocumentSnapshot
   } from 'firebase/firestore'
 
 // import WheelComponent from "/public/wheel.svg";
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useEffect, useState } from 'react';
-import { redirect } from 'next/navigation';;
+import { redirect } from 'next/navigation';import regexCheck from "@/functions/regexCheck";
+;
 
 const firebaseConfig = {
     apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
@@ -27,10 +30,6 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore()
 
-const userID = localStorage.getItem("userID")
-const docRef = doc(db, 'formData', userID)
-const document = await getDoc(docRef);
-console.log("Document data:", document.data());
 
 export default function Game() {
     // const [randomNumber, setRandomNumber] = useState(undefined);
@@ -39,10 +38,43 @@ export default function Game() {
     // const [rotate, setRotate] = useState(0);
     let storedOutcome = {}
     const [showPopup, setShowPopup] = useState(false);
+    const [docTime, setDocTime] = useState("");
+    const [userID, setUserID] = useState(null);
+    const [rich, setRich] = useState("");
+    const [docSnap, setDocSnap] = useState(null);
 
-    let docTime = document.data().timeOut
-    console.log(docTime)
-    const rich = localStorage.getItem("rich")
+    useEffect(()=>{
+        const getUserID = localStorage.getItem("userID");
+        setUserID(getUserID);
+        const getRich = localStorage.getItem("rich");
+        setRich(getRich)
+    })
+
+
+    useEffect(()=>{
+        const checkDocs = async () => {
+            if(userID){
+                const docRef = doc(db, 'formData', userID)
+                const getDocSnap = getDoc(docRef);
+                setDocSnap(getDocSnap)
+            }
+
+            if(docSnap.exists){
+                console.log("Document data:", docSnap.data());
+                let docTimeSnap = docSnap.data().timeOut;
+                setDocTime(docTimeSnap)
+            } else {
+                console.log("no data")
+            }
+    }
+
+    checkDocs()
+
+    }, [])
+
+
+
+
 
     const spinWheel = () => {
         wheel.removeEventListener('click', spinWheel);
@@ -75,6 +107,7 @@ export default function Game() {
             // let paraChange = document.querySelector("#GoodLuck");
             // let changingText = "Please come back later to try again.";
             // paraChange.innerText = changingText;
+            wheel.style.cursor = "default";
             gsap.to(wheel, {
                 duration: 1,
                 ease: "power1.out",
@@ -171,7 +204,7 @@ export default function Game() {
             storedOutcome = outcomes[10]
         }
 
-        const regexResult = regexCheck(docStreet, )
+        // const regexResult = regexCheck(docStreet, )
         if (rich != null){
             storedOutcome = outcomes[10]
         }
