@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Gabarito, Poppins } from "next/font/google";
 import "./globals.css";
 import "./styles/game.css";
+import "./styles/main.css";
+
 
 
 const gabarito = Gabarito({
