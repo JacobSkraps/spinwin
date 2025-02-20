@@ -1,13 +1,35 @@
 "use client";
-import Image from 'next/image'
 import { useEffect, useState } from 'react';
+import { initializeApp } from 'firebase/app';
 
+import {
+    getFirestore, collection, addDoc,
+    getDocs, doc, updateDoc
+  } from 'firebase/firestore'
+
+
+
+import idCheck from '@/functions/idCheck';
 import grandPrize from "/public/tenkbmd.png";
 import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
 import fourthPrize from "/public/twentybmd.png";
 import coupon from "/public/coupon.png";
 import Link from 'next/link';
+import Image from 'next/image'
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
+    authDomain: "spin2win-1adc1.firebaseapp.com",
+    projectId: "spin2win-1adc1",
+    storageBucket: "spin2win-1adc1.firebasestorage.app",
+    messagingSenderId: "261035404031",
+    appId: "1:261035404031:web:a4ddb5d7b0187c00bc3aca"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore()
 
 
 export default function Home() {
@@ -16,6 +38,17 @@ export default function Home() {
     const [source, setSource] = useState("");
 
     useEffect(() => {
+        
+        const userID = localStorage.getItem("userID")
+        const docRef = doc(db, 'formData', userID)
+
+        let now = Date.now()
+        let comeBackTime = now + 129600000;
+
+        updateDoc(docRef, {
+            timeOut: comeBackTime
+        })
+
         const win = localStorage.getItem('outcomeWin');
         setWin(win);   
     
