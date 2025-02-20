@@ -7,7 +7,7 @@ import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
 import fourthPrize from "/public/twentybmd.png";
 import coupon from "/public/coupon.png";
-
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -93,8 +93,12 @@ export default function Home() {
                     <h2 id='outcomeSubHeader'>Loading...</h2>
                     <p className='outcomePara' id='para1'>Loading...</p>
                     <p className='outcomePara' id='para2'>Loading...</p>
-
-
+                    <div className='formButtons'>
+                        <div className='backButton pageButton'>
+                            <Link href="../../">Give Up</Link>
+                        </div>
+                        <button className='nextButton pageButton' type="submit">Claim</button>
+                    </div>
                 </div>
             </div>
         </div>
