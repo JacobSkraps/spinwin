@@ -5,6 +5,7 @@ import grandPrize from "/public/tenkbmd.png";
 import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
 import fourthPrize from "/public/twentybmd.png";
+import coupon from "/public/coupon.png";
 
 
 
@@ -37,9 +38,9 @@ export default function Home() {
             
             let firstPara = "Thanks for playing! Unfortunately you didn’t win this time. You can try again in 36 hours.";
             myParaOne.innerText = firstPara;
-            let secondPara = "You have won a coupon for $2.00 off any purchase over $50 from Pierogi Hat Co or a free Gurkin shake with any order of fries..";
+            let secondPara = "You have won a coupon for $2.00 off any purchase over $50 from Pierogi Hat Co or a free Gurkin shake with any order of fries.";
             myParaTwo.innerText = secondPara;
-            setSource(fourthPrize);
+            setSource(coupon);
 
         }
         else{
@@ -81,7 +82,7 @@ export default function Home() {
     });
     return(
         <div>
-            <h1 className="contestInfo" id="outcomeHeader">Loading</h1>
+            <h1 className="contest-info-wrapper__fill" id="outcomeHeader">Loading</h1>
             <div className="GameSplit">
                 <div className="GameInteract">
                     <Image src={source} id='prizeSpace' alt="Your prize!" />

@@ -168,6 +168,11 @@ body{
 #outcomeHeader{
   text-align: center;
   font-size: 6rem;
+  background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
 }
 #OutcomeDisplay{
   width: 60%;
