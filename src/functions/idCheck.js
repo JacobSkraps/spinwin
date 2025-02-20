@@ -2,9 +2,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function idCheck(db) {
-    
-    useEffect(()=>{
+export default async function idCheck(db) {
+
         const checkDocs = async () => {
             const userID = localStorage.getItem("userID")
             console.log(`${userID} IS THE USERID`)
@@ -24,8 +23,6 @@ export default function idCheck(db) {
         }
 
         checkDocs();
-        
-    }, [db])
 
     // return doesExist
 

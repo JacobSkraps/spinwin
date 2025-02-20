@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/spinwin',
+  // output: 'export',
+  // basePath: '/spinwin',
     webpack(config) {
       
         // Grab the existing rule that handles SVG imports
