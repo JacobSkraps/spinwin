@@ -93,16 +93,28 @@
     -webkit-text-fill-color: transparent;
 }
 
+.form-contest-text-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
 /** paragraph text **/
 .form-contest-info__p{
     font-size: var(--font-size--p);
 }
 
 .form-contest-info__p--bottom{
+    /* height: auto;
+    display: block;
+    width: auto; */
     align-self: flex-end;
     font-size: 12px;
     line-height: 1rem;
     margin-top: auto;
+    position: relative;
+    bottom: 0;
 }
 
 .contest-info-button{
@@ -149,6 +161,7 @@ input{
     color: white;
     margin-bottom: var(--spacing--m);
 }
+
 
 /** This is the fieldset for the half */
 .fieldset2{
@@ -370,6 +383,8 @@ input[type="checkbox"] {
 /** Consent **/
 .consent{
     width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .consentBox{

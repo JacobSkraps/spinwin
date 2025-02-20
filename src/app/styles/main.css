@@ -53,6 +53,7 @@
 .sponsor{
     width: 20%;
     height: auto;
+    object-fit: contain;
 }
 #mainSponsors{
     width: 100%;

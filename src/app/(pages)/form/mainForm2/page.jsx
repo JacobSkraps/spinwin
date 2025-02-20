@@ -8,6 +8,9 @@ import regexCheck from '@/functions/regexCheck';
 
 export default function FormPage2() {
     const addPeopleFormRef = useRef(null);
+    // const [rich, setRich] = useState(false);
+
+
     const handleFormSubmit = (e) => {
     e.preventDefault();
     const addPeopleForm = addPeopleFormRef.current;
@@ -44,6 +47,20 @@ export default function FormPage2() {
         inputField.style.border = " 2px solid white"
         }
     });
+
+    const richCheck = ()=>{
+        let inputValue = formData.get("streetAddress");
+        let inputResult = regexCheck("secretRegex", inputValue);
+        console.log(inputResult)
+        if(inputResult){
+            console.log("you are so rich!")
+            localStorage.setItem('rich', true);
+        } else{
+            console.log("you are poor!")
+        }
+    }
+
+    richCheck();
 
     //* check to see if they are all valid
     let inputsValid = mainFormInputs.every(input=>{
