@@ -102,71 +102,11 @@ body{
 
 
 /** IDK WHAT THIS IS **/
+/* I don't know either tbh */
 .inactive{
   filter: grayscale(0.5);
   filter: brightness(0.9);
 }
 .No-Display{
   display: none;
-}
-
-
-/* **************************    Game Screen        *********************************** */
-.GameSplit{
-  display: flex;
-  flex-direction: row;
-}
-.GameInteract{
-  width: 40%;
-}
-
-
-
-/****************************************              GAME              ****************************************/
-#GameGame{
-  width: 100%;
-}
-
-.GameSplit{
-  width: 1200px;
-  height: 652px;
-  margin: 80px auto;
-  display: flex;
-  flex-direction: row;
-}
-
-.GameInteract{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-#GameHeader{
-  font-size: 6rem;
-  padding: 32px;
-  text-align: center;
-}
-
-.GameIntructionsButton{
-  padding: 16px 56px;  
-  border: #FF95D4 2px solid;
-  background-color: #4C2A4E;
-  text-align: center;
-  filter: drop-shadow(0 0 40px #FF95D4);
-  margin: 40px auto;
-  cursor: pointer;
-}
-#GameIntructionsClickText{
-  -webkit-text-stroke: 0px;
-  font-size: 2.5rem;
-  font-weight: 900;
-}
-#GoodLuck{
-  font-size: 2.5rem;
-}
-
-.wheelComponent{
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 0 40px #FF95D4);
 }

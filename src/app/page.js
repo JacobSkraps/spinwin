@@ -9,6 +9,14 @@ import {
 import Link from 'next/link'
 import idCheck from '@/functions/idCheck';
 import { redirect } from 'next/navigation';
+import WheelComponent from "@/app/components/wheel.jsx";
+
+import Gurkin from "/public/Gurkin.png";
+import OPDYPS from "/public/OPDYPS.png";
+import PerogiHatCo from "/public/perogiHatCo.png";
+import SlormWorm from "/public/slormWorm.png";
+
+import Image from 'next/image'
 
 
 // Your web app's Firebase configuration
@@ -73,14 +81,34 @@ export default function Home() {
 
 
   return (
-    <div>
-      <h1>Hi</h1>
-      <Link href="./form/birthdayform">
-        <h3 className='formSubHeading'>Take me to the Form!</h3>
-      </Link>
-      <Link href="./game">
-        <h3 className='formSubHeading'>Take me to the Game!</h3>
-      </Link>
+    // <div>
+    //   <h1>Hi</h1>
+    //   <Link href="./form/birthdayform">
+    //     <h3 className='formSubHeading'>Take me to the Form!</h3>
+    //   </Link>
+    //   <Link href="./game">
+    //     <h3 className='formSubHeading'>Take me to the Game!</h3>
+    //   </Link>
+    // </div>
+    <div id='mainMain'>
+      <div id='mainSplit'>
+        <div id='mainInfo'>
+          <h1 id='mainHeader'>SPIN TO WIN</h1>
+          <h2 id='mainSubHeading'>Spin to Win Contest <br />
+          Win Bonus Dollars!</h2>
+          <button className='nextButton pageButton' type="submit" id='playButton'>Let's Play</button>
+
+        </div>
+        <div id='mainWheel'>
+          <WheelComponent className="wheelComponent" id="theWheel" />
+        </div>
+      </div>
+      <div id='mainSponsors'>
+        <Image src={SlormWorm} className="sponsor" alt="Your prize!" />
+        <Image src={PerogiHatCo} className="sponsor" alt="Your prize!" />
+        <Image src={OPDYPS} className="sponsor" alt="Your prize!" />
+        <Image src={Gurkin} className="sponsor" alt="Your prize!" />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,75 @@
+#mainMain{
+    width: 1200px;
+    margin: 60px auto;
+}
+#mainSplit{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+#mainInfo{
+    width: 40%;
+}
+#mainHeader{
+    text-align: center;
+    font-size: 6rem;
+    font-weight: 900;
+    background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px #A12C0B;
+    background-clip: text;
+    line-height: 5.625rem;
+  }
+  #mainSubHeading{
+    font-family: 'poppins';
+    font-weight: 500;
+    font-size: 2rem;
+    color: white;
+    margin: 12px auto;
+    text-align: center;
+  }
+
+
+#playButton{
+    margin: auto;
+    width: 132px;
+}
+#mainWheel{
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 40px #FF95D4);
+}
+
+
+.sponsor{
+    width: 20%;
+    height: auto;
+}
+#mainSponsors{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 480px) {
+    #mainMain{
+        width: 90%;
+        margin: 30px auto;
+    }    
+    #mainSplit{
+        flex-direction: column;
+    }
+    #mainInfo{
+        width: 100%;
+    }
+    #mainHeader{
+        font-size: 4rem;
+    }
+    .sponsor{
+        width: 34%;
+    }
+
+}
