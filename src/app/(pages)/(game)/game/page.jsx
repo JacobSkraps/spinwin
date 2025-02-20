@@ -69,10 +69,14 @@ export default function Home() {
         if (now < docTime) {
             wheel.removeEventListener('click', spinWheel);
             console.log("You have to wait!");
-
             // let paraChange = document.querySelector("#GoodLuck");
             // let changingText = "Please come back later to try again.";
             // paraChange.innerText = changingText;
+            gsap.to(wheel, {
+                duration: 1,
+                ease: "power1.out",
+                css:{ 'filter': 'grayscale(100%)'}
+            });    
         }
         
         gsap.set(spinningPart, {
