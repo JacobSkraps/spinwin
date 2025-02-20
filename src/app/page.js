@@ -41,7 +41,6 @@ const colRef = collection(db, 'formData')
 export default function Home() {
 
   /****! MADE THIS FUNCTION FOR THE PLAY BUTTON ONCE IT COMES!! */
-  idCheck(db);
 
 
   useEffect(() => {
@@ -79,6 +78,20 @@ export default function Home() {
 
   })
 
+  const playClick = (e)=>{
+    e.preventDefault();
+
+    idCheck(db);
+    redirect(`/form/birthdayform`)
+  }
+
+  const removeLocal = (e)=>{
+    e.preventDefault();
+
+    const remove = localStorage.removeItem("userID");
+    console.log(remove)
+    
+  }
 
   return (
     // <div>
@@ -96,7 +109,11 @@ export default function Home() {
           <h1 id='mainHeader'>SPIN TO WIN</h1>
           <h2 id='mainSubHeading'>Spin to Win Contest <br />
           Win Bonus Dollars!</h2>
-          <button className='nextButton pageButton' type="submit" id='playButton'>Let's Play</button>
+          <div className="mainButtonWrapper">
+          <button className='nextButton pageButton' onClick={playClick} type="submit" id='playButton'>Let's Play</button>
+          <button className='backButton pageButton storageClearButton' onClick={removeLocal} type="submit" id='playButton'>STORAGE CLEAR</button>
+
+          </div>
 
         </div>
         <div id='mainWheel'>

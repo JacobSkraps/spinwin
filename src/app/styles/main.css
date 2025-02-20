@@ -31,6 +31,13 @@
     text-align: center;
   }
 
+.mainButtonWrapper{
+    display: flex;
+}
+
+.storageClearButton{
+    font-size: 0.8rem;
+}
 
 #playButton{
     margin: auto;
