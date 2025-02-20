@@ -9,6 +9,7 @@
 }
 #mainInfo{
     width: 40%;
+    text-align: center;
 }
 #mainHeader{
     text-align: center;
@@ -78,5 +79,5 @@
     .sponsor{
         width: 34%;
     }
-
+/* update */
 }
