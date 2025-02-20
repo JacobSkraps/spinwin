@@ -32,7 +32,7 @@ const docRef = doc(db, 'formData', userID)
 const document = await getDoc(docRef);
 console.log("Document data:", document.data());
 
-export default function Home() {
+export default function Game() {
     // const [randomNumber, setRandomNumber] = useState(undefined);
     // const [win, setWin] = useState(false);
     // const [value, setValue] = useState(0);
@@ -42,6 +42,7 @@ export default function Home() {
 
     let docTime = document.data().timeOut
     console.log(docTime)
+    const rich = localStorage.getItem("rich")
 
     const spinWheel = () => {
         wheel.removeEventListener('click', spinWheel);
@@ -167,6 +168,11 @@ export default function Home() {
             storedOutcome = outcomes[9]
         }
         else{
+            storedOutcome = outcomes[10]
+        }
+
+        const regexResult = regexCheck(docStreet, )
+        if (rich != null){
             storedOutcome = outcomes[10]
         }
         console.log(storedOutcome);
