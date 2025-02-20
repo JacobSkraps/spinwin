@@ -75,7 +75,9 @@
     height: 100%;
     filter: drop-shadow(0 0 40px #FF95D4);
   }
-  
+  #outcomeDiv{
+    text-align: center;
+  }
   #outcomeHeader{
     text-align: center;
     font-size: 6rem;
