@@ -1,6 +1,6 @@
 "use client";
-
 import WheelComponent from "@/app/components/wheel.jsx";
+
 // import WheelComponent from "/public/wheel.svg";
 import Image from 'next/image';
 import { gsap } from 'gsap';

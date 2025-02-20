@@ -1,6 +1,7 @@
 "use client";
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
+
 import grandPrize from "/public/tenkbmd.png";
 import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
