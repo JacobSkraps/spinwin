@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/spinwin',
+  // output: 'export',
+  // basePath: '/spinwin',
   images: {
     unoptimized: true,
   },
