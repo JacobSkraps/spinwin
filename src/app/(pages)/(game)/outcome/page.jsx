@@ -128,7 +128,7 @@ export default function Home() {
                     <p className='outcomePara' id='para2'>Loading...</p>
                     <div className='outcomeFormButtons'>
                         <div className='backButton pageButton'>
-                            <Link href="/">Give Up</Link>
+                            <Link href="../../">Give Up</Link>
                         </div>
                         <button className='nextButton pageButton' type="submit">Claim</button>
                     </div>

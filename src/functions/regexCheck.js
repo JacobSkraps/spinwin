@@ -9,7 +9,7 @@ export default function regexCheck(type, value) {
     const lastNameRegex = /^[A-Za-z]{1}[a-z]+([ ]?[A-Za-z]{1}[a-z]+)?$/;
     const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const streetAddressRegex = /^[0-9]+ [A-Za-z ]+$/;
+    const streetAddressRegex = /^[0-9]+ [A-Za-z ]+|(\W|^)which\sone\??$/;
 
     const provinceRegex = /^[A-Za-z\s]+$/;
     const cityRegex = /^[A-Za-z\s]+$/;
