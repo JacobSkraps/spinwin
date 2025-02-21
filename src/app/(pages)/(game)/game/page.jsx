@@ -37,38 +37,58 @@ export default function Game() {
     // const [value, setValue] = useState(0);
     // const [rotate, setRotate] = useState(0);
     let storedOutcome = {}
+    let isRich = false;
     const [showPopup, setShowPopup] = useState(false);
     const [docTime, setDocTime] = useState("");
     const [userID, setUserID] = useState(null);
-    const [rich, setRich] = useState("");
+    const [rich, setRich] = useState(false);
     const [docSnap, setDocSnap] = useState(null);
 
-    useEffect(() => {
-        const checkDocs = async () => {
-            if (userID) {
-                const docRef = doc(db, 'formData', userID);
-                const docSnap = await getDoc(docRef);
-                setDocSnap(docSnap);
-    
-                if (docSnap.exists()) {
-                    console.log("Document data:", docSnap.data());
-                    let docTimeSnap = docSnap.data().timeOut;
-                    setDocTime(docTimeSnap);
-                } else {
-                    console.log("no data");
-                }
-            }
-        }
-    
-        checkDocs();
-
-        wheel.addEventListener('click', spinWheel);
-
+    useEffect(()=>{
         const getUserID = localStorage.getItem("userID");
         setUserID(getUserID);
         const getRich = localStorage.getItem("rich");
-        setRich(getRich)
-        console.log(rich);
+
+        if(getRich){
+            setRich(getRich)
+            isRich = true;
+        }
+    })
+
+
+    useEffect(()=>{
+        const checkDocs = async () => {
+            if(userID){
+                const docRef = doc(db, 'formData', userID)
+                const getDocSnap = getDoc(docRef);
+                if (getDocSnap !== null){
+                    setDocSnap(getDocSnap)
+
+                }
+            }
+
+            if(docSnap !== null){
+                console.log("Document data:", docSnap.data());
+                let docTimeSnap = docSnap.data().timeOut;
+                setDocTime(docTimeSnap)
+            } else {
+                console.log("no data")
+            }
+    }
+
+    checkDocs()
+
+    }, [userID]);
+
+    useEffect(()=>{
+
+        wheel.addEventListener('click', spinWheel);
+
+        // const getUserID = localStorage.getItem("userID");
+        // setUserID(getUserID);
+        // const getRich = localStorage.getItem("rich");
+        // setRich(getRich)
+        // console.log(rich);
 
         console.log(document);
         let now = Date.now()
@@ -180,7 +200,7 @@ export default function Game() {
 
         // const regexResult = regexCheck(docStreet, )
         console.log(rich);
-        if (rich == true){
+        if (isRich == true){
             storedOutcome = outcomes[10]
             console.log("right this way sir")
         }
