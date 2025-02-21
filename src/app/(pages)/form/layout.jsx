@@ -29,8 +29,8 @@ export default function FormLayout({ children }) {
 				<section className="form-contest-info">
 					<div className="contest-info-header">
 						<div className="contest-info-wrapper">
-							<h1 className="contest-info-wrapper__stroke" aria-hidden="true">Contest Info</h1>
-							<h1 className="contest-info-wrapper__fill" >Contest Info</h1>
+							<h1 className="contest-info-wrapper__stroke" aria-hidden="true">Almost there...</h1>
+							<h1 className="contest-info-wrapper__fill" >Almost there...</h1>
 						</div>
 						<button type="button" className="contest-info-button" onClick={openModal}>i</button>
 					</div>
