@@ -72,7 +72,12 @@
     /* font-size: 2.25rem; */
     font-size: clamp(2.25rem, 1.921rem + 1.754vw, 3.5rem); 
 }
-
+.contest-info-wrapper{
+    border: 5px solid rgba(255, 211, 66, 1);
+    padding: 8px 16px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(73,12,21,1) 0%, rgba(140,12,21,1) 50%, rgba(73,12,21,1) 100%); 
+}
 .contest-info-button{
     display: none;
 }
@@ -125,6 +130,16 @@
     border-radius: 10px;
     font-weight: 700;
     font-size: 1.2rem;
+}
+/** Bar **/
+#progressBar{
+    height: 20%;
+}
+#theBar{
+    height: 20%;
+}
+.ProgressComponent{
+    height: 300px;
 }
 
 /*************************************  FORM  ******************************/
