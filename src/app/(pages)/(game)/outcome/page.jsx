@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 
 import {
@@ -7,7 +7,7 @@ import {
     getDocs, doc, updateDoc
   } from 'firebase/firestore'
 
-
+  import regexCheck from '@/functions/regexCheck';
 
 import idCheck from '@/functions/idCheck';
 import grandPrize from "/public/tenkbmd.png";
@@ -33,7 +33,8 @@ const db = getFirestore()
 
 
 export default function Outcome() {
-    
+    const mathCheckRef = useRef(null);
+
     const [win, setWin] = useState('');
     const [value, setValue] = useState('');
     const [source, setSource] = useState(coupon);
@@ -117,7 +118,7 @@ export default function Outcome() {
             
             myParaTwo.innerText = secondPara;
 
-            summonInput.name='question';
+            summonInput.name='skillTest';
             summonInput.type='text';
             summonInput.id='skillTest';
 
@@ -125,36 +126,44 @@ export default function Outcome() {
         }
     }, []);
 
-      const handleFormSubmit = (e) => {
-        e.preventDefault();
-        const addPeopleForm = addPeopleFormRef.current;
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const mathCheck = mathCheckRef.current;
+    const formData = new FormData(mathCheck);
+    
+    const questionValue = formData.get('skillTest');
+    console.log(questionValue)
+    
+    let guardianFormInputs = ["skillTest"];
 
-        //* check all if there is anything wrong
-        let inputField = document.getElementById(skillTest);
+    //* check all if there is anything wrong
+    guardianFormInputs.forEach(input => {
+        let inputField = document.getElementById(input);
 
-        let inputValue = inputField.value;
-        let inputResult = regexCheck(skillTest, inputValue);
+        let inputValue = formData.get(input);
+        let inputResult = regexCheck(input, inputValue);
         if(!inputResult){
             inputField.style.border = "2px solid red"
         } else{
             console.log("colored to white")
             inputField.style.border = " 2px solid white"
         }
-    
-        //* check to see if they are all valid
-        let inputsValid = guardianFormInputs.every(input=>{
-          let inputValue = formData.get(input);
-          return regexCheck(input, inputValue);
-        });
-    
-        // if (inputsValid){
-        //   console.log("ALL TRUE YIPPEEE")
-        //   redirect(`/form/guardianForm2`)
-        // } else{
-        //   console.log("SOMETHIN FAILED WAHH")
-        // }
-        // redirect(`/form/guardianForm2`);
-        };  
+    });
+
+    //* check to see if they are all valid
+    let inputsValid = guardianFormInputs.every(input=>{
+        let inputValue = formData.get(input);
+        return regexCheck(input, inputValue);
+    });
+
+    if (inputsValid){
+        console.log("ALL TRUE YIPPEEE")
+        redirect(`/form/guardianForm2`)
+    } else{
+        console.log("SOMETHIN FAILED WAHH")
+    }
+    // redirect(`/form/guardianForm2`);
+    };  
     return(
         <div id='outcomeDiv'>
             <h1 className="contest-info-wrapper__fill" id="outcomeHeader">Loading</h1>
@@ -163,19 +172,21 @@ export default function Outcome() {
                     <Image src={source} id='prizeSpace' alt="Your prize!" />
                     {/* <img src={ fourthPrize } alt="Your prize!" id='prizeSpace' /> */}
                 </div>
-                <div className="OutcomeDisplay">
-                    <h2 id='outcomeSubHeader'>Loading...</h2>
-                    <p className='outcomePara' id='para1'>Loading...</p>
-                    <div id='outcomeMathContainer'>
-                        <p className='outcomePara' id='para2'>Loading...</p>
+                    <div className="OutcomeDisplay">
+                        <form ref={mathCheckRef} className="add" onSubmit={handleFormSubmit} noValidate>
+                            <h2 id='outcomeSubHeader'>Loading...</h2>
+                            <p className='outcomePara' id='para1'>Loading...</p>
+                            <div id='outcomeMathContainer'>
+                                <p className='outcomePara' id='para2'>Loading...</p>
+                            </div>
+                            <div className='outcomeFormButtons'>
+                                <div className='backButton pageButton'>
+                                    <Link href="../../">Give Up</Link>
+                                </div>
+                                <button className='nextButton pageButton' type="submit">Claim</button>
+                            </div>
+                        </form>
                     </div>
-                    <div className='outcomeFormButtons'>
-                        <div className='backButton pageButton'>
-                            <Link href="../../">Give Up</Link>
-                        </div>
-                        <button className='nextButton pageButton' type="submit">Claim</button>
-                    </div>
-                </div>
             </div>
         </div>
     );

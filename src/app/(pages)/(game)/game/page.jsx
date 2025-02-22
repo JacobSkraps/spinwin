@@ -32,6 +32,7 @@ const db = getFirestore()
 
 
 export default function Game() {
+    
     // const [randomNumber, setRandomNumber] = useState(undefined);
     // const [win, setWin] = useState(false);
     // const [value, setValue] = useState(0);
