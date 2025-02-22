@@ -94,6 +94,7 @@
   #outcomeHeader{
     text-align: center;
     font-size: 6rem;
+    font-weight: 900;
     background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -210,6 +211,11 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+#popup-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .liStyles{
     font-family: 'poppins';
     font-weight: 500;
@@ -217,6 +223,10 @@
     color: white;
     margin-bottom: 12px;
     text-align: center;
+}
+.liStyleSmall{
+  font-size: 0.9rem;
+  margin-top: 64px;
 }
 #outcomeMathContainer{
   margin: 24px;
@@ -280,6 +290,7 @@
         width: 100%;
     }
     #outcomeHeader{
-        font-size: 3.5rem;
+        font-size: 2.5rem;
+        margin-top: 16px;
     }
 }

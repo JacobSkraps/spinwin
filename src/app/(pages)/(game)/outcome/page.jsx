@@ -185,7 +185,7 @@ export default function Outcome() {
                             </div>
                             <div className='outcomeFormButtons'>
                                 <div className='backButton pageButton'>
-                                    <Link href="../../">Give Up</Link>
+                                    <Link href="../">Give Up</Link>
                                 </div>
                                 <button className='nextButton pageButton' type="submit">Claim</button>
                             </div>
