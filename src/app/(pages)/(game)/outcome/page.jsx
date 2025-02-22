@@ -70,6 +70,8 @@ export default function Outcome() {
             let mySubHeader = document.querySelector("#outcomeSubHeader");
             let myParaOne = document.querySelector("#para1");
             let myParaTwo = document.querySelector("#para2");
+            let claimBtn = document.querySelector(".nextButton");
+
 
             let headerText = "Aw, You Were So Close";
             myHeader.innerText = headerText;
@@ -82,7 +84,7 @@ export default function Outcome() {
             let secondPara = "You have won a coupon for $2.00 off any purchase over $50 from Pierogi Hat Co or a free Gurkin shake with any order of fries.";
             myParaTwo.innerText = secondPara;
             setSource(coupon);
-
+            claimBtn.style.display = "none";
         }
         else{
             if (value == 20){
