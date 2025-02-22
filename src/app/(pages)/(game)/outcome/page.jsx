@@ -15,8 +15,12 @@ import secondPrize from "/public/sevenfiftybmd.png";
 import thirdPrize from "/public/hundredbmd.png";
 import fourthPrize from "/public/twentybmd.png";
 import coupon from "/public/coupon.png";
+
 import Link from 'next/link';
 import Image from 'next/image'
+
+import WinningPopup from "@/app/components/WinPopup";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyA5o7r3SowKoTVj11gnTvPHYq__qMzPDWo",
@@ -34,6 +38,7 @@ const db = getFirestore()
 
 export default function Outcome() {
     const mathCheckRef = useRef(null);
+    const [showPopup, setShowPopup] = useState(false);
 
     const [win, setWin] = useState('');
     const [value, setValue] = useState('');
@@ -112,7 +117,7 @@ export default function Outcome() {
             let subHeaderText = `${value} BuyMore Dollars`;
             mySubHeader.innerText = subHeaderText;
             
-            let firstPara = "Check your email for prize details. Answer the skill testing question below. Prizes must be claimed in 7 days.";
+            let firstPara = "Answer the skill testing question below. Prizes must be claimed in 7 days";
             myParaOne.innerText = firstPara;
             let secondPara = "4 + 8 =";
             
@@ -157,8 +162,7 @@ export default function Outcome() {
     });
 
     if (inputsValid){
-        console.log("ALL TRUE YIPPEEE")
-        redirect(`/form/guardianForm2`)
+        setShowPopup(true)
     } else{
         console.log("SOMETHIN FAILED WAHH")
     }
@@ -188,6 +192,7 @@ export default function Outcome() {
                         </form>
                     </div>
             </div>
+            <WinningPopup show={showPopup} onClose={() => setShowPopup(false)} />
         </div>
     );
 }
