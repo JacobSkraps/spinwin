@@ -132,6 +132,9 @@
     font-size: 1.2rem;
 }
 /** Bar **/
+#barTracker{
+    display: flex;
+}
 #progressBar{
     height: 20%;
 }
@@ -141,7 +144,18 @@
 .ProgressComponent{
     height: 300px;
 }
-
+#bar > svg{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+#barSiding{
+    display: flex;
+    flex-direction: column;
+    line-height: 425%;
+    padding: 0px 16px;
+    margin-top: -8px;
+}
 /*************************************  FORM  ******************************/
 
 #formContent{
