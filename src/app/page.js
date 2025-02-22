@@ -89,7 +89,9 @@ export default function Home() {
     e.preventDefault();
 
     const remove = localStorage.removeItem("userID");
+    const removeRich = localStorage.removeItem("rich");
     console.log(remove)
+    console.log(removeRich)
     
   }
 

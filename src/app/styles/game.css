@@ -15,7 +15,7 @@
   }
   
   .GameSplit{
-    width: 1200px;
+    width: 90%;
     height: 652px;
     margin: 80px auto;
     display: flex;
@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    width: 50%;
   }
   
   #GameHeader{
@@ -93,13 +94,14 @@
   #outcomeHeader{
     text-align: center;
     font-size: 6rem;
+    font-weight: 900;
     background: linear-gradient(180deg, #FFEB53 31.9%, #FFFEB1 46.4%, #FFD269 68.4%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  #OutcomeDisplay{
-    width: 60%;
+  .OutcomeDisplay{
+    width: 50%;
   }
   #outcomeSubHeader{
     width: 100%;
@@ -116,10 +118,12 @@
   }
   .outcomePara{
     font-family: 'poppins';
-    font-weight: 500;
-    font-size: 1rem;
-    color: white;
-    margin-bottom: 12px;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 42px;
+    color: #FFF1D8;
+    filter: drop-shadow(1px 5px 5px Black);
+    margin: 6px 8px;
     text-align: center;
     /* max-width: 40%; */
   }
@@ -207,6 +211,11 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+#popup-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .liStyles{
     font-family: 'poppins';
     font-weight: 500;
@@ -214,6 +223,46 @@
     color: white;
     margin-bottom: 12px;
     text-align: center;
+}
+.liStyleSmall{
+  font-size: 0.9rem;
+  margin-top: 64px;
+}
+#outcomeMathContainer{
+  margin: 24px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+#skillTest{
+  background-color: #4C2A4E;
+  border: solid 2px #FFFFFF;
+  color: white;
+  border-radius: 10px;
+  padding: 4px;
+  font-family: 'poppins';
+  font-weight: 500;
+  width: 30%;
+  min-width: 80px;
+}
+#claimBtn{
+  background: linear-gradient(180deg, #695507 0%, #F8E74C 15.49%, #FFF3EF 50.49%, #F8E74C 84.99%, #695507 100%);
+  box-shadow: 0px 0px 15px 2px #F8D757;
+  margin: auto;
+  width: 106px;
+  height: 48px;
+  border: 4px solid #0E1F25;
+  border-radius: 10px;
+  display: flex;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 30px;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 480px) {
@@ -230,6 +279,9 @@
     .GameInteract{
         width: 100%;
     }
+    .OutcomeDisplay{
+      width: 100%;
+  }
     #GameHeader{
         padding: 0;
         font-size: 4rem;
@@ -238,6 +290,7 @@
         width: 100%;
     }
     #outcomeHeader{
-        font-size: 3.5rem;
+        font-size: 2.5rem;
+        margin-top: 16px;
     }
 }

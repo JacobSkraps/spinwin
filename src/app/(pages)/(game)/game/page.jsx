@@ -32,6 +32,7 @@ const db = getFirestore()
 
 
 export default function Game() {
+    
     // const [randomNumber, setRandomNumber] = useState(undefined);
     // const [win, setWin] = useState(false);
     // const [value, setValue] = useState(0);
@@ -241,7 +242,7 @@ export default function Game() {
                 <div className="GameInstructionsButton" onClick={() => setShowPopup(true)}>
                     <h2 className="contestInfo" id="GameInstructionsClickText">Instructions</h2>
                 </div>
-                <h2 className="formHeading" id="GoodLuck">Good Luck!</h2>
+                <h2 className="formHeading" id="GoodLuck">Click the wheel to Spin!</h2>
             </div>
             <div id="GameGame">
                 <div id="wheel">
